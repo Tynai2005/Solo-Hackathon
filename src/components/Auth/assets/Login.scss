@@ -1,0 +1,33 @@
+// @import '../../../styles/Styles.css';
+
+.btns{
+    background-color: "#0099ff";
+    color: "white";
+    padding: "10px 20px";
+  };
+  .inps{
+    margin: "10px 0";
+    border-bottom: "1px white solid";
+  };
+  .inpColor{
+    color: "white";
+  };
+  .cont{
+    margin: "50px";
+  };
+  .text{
+    color: "white";
+    margin: "10px 0";
+  };
+  .visBtn{
+    color: "white";
+    margin-left: "-50px";
+  };
+  .grids{
+    display: "flex";
+    align-items: "center";
+  };
+  .containers{
+    display: "flex";
+    flex-direction: "column";
+  };

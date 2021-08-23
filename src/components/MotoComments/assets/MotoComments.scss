@@ -1,0 +1,80 @@
+  .commentsInnerContainer{
+    max-width: "1000px";
+    min-height: "500px";
+  }
+
+  .inps{
+    margin: "10px 0";
+    border-bottom: "1px white solid";
+  }
+  .comments{
+    width: "100%";
+    display: "flex";
+    flex-direction: "column";
+    align-items: "center";
+    height: "100%";
+  }
+  .inputDiv{
+    display: "flex";
+    justify-content: "space-evenly";
+    margin-bottom: 0;
+    flex-direction: "column";
+    width: "100%";
+  }
+  .inpColor{
+    color: "white";
+  }
+  .secondaryText{
+    color: "grey";
+    line-height: "20px";
+    font-size: "14px";
+  }
+  .commentDelete{
+    border: "0";
+    border-radius: "5px";
+    background-color: "red";
+    color: "white";
+  }
+  .commentEdit{
+    background-color: "inherit";
+    color: "white";
+    border: "1px white solid";
+    border-radius: "5px";
+    margin-left: "10px";
+  }
+  .commmentSave{
+    background-color: "inherit";
+    color: "green";
+    border: "1px white solid";
+    border-radius: "5px";
+    margin-left: "10px";
+  }
+  .commentClose{
+    background-color: "inherit";
+    color: "red";
+    border: "1px white solid";
+    border-radius: "5px";
+  }
+  .usersComment{
+    color: "white";
+    width: "100%";
+    word-wrap: "break-word";
+  }
+  .editInput{
+    margin-bottom: "10px";
+  }
+  .arrow{
+    color: "white";
+    margin-left: "10px";
+  }
+  .inpAndArrowDiv{
+    display: "flex";
+    align-items: "center";
+  }
+  .addComment{
+    background-color: "inherit";
+    background-color: "green";
+    border-radius: "5px";
+    margin-bottom: "10px";
+    color: "white";
+  }

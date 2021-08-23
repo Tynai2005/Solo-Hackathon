@@ -1,0 +1,60 @@
+.text {
+  color: "white";
+  margin-left: "10px";
+  font-size: "20px";
+}
+
+.img {
+  width: "15%";
+  border-radius: "10px";
+}
+
+.grids {
+  margin: "20px 0";
+  display: "flex";
+  -webkit-box-align: "center";
+      -ms-flex-align: "center";
+          align-items: "center";
+  background-color: "rgb(32 32 32)";
+}
+
+.title {
+  color: "white";
+}
+
+.container {
+  display: "flex";
+}
+
+.price {
+  color: "white";
+}
+
+.deleteBtn {
+  color: "white";
+}
+
+.noMoto {
+  color: "white";
+  height: "80vh";
+  text-align: "center";
+  margin-top: "20px";
+}
+
+.buyGrid {
+  display: "flex";
+  -webkit-box-pack: "space-between";
+      -ms-flex-pack: "space-between";
+          justify-content: "space-between";
+}
+
+.buyBtn {
+  color: "white";
+  background-color: "green";
+}
+
+.main {
+  min-height: "100vh";
+  margin: "20px auto";
+}
+/*# sourceMappingURL=Cart.css.map */

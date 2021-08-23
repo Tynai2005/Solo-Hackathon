@@ -1,0 +1,71 @@
+.detailsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.hr {
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 50px 0;
+}
+
+.homeLink {
+  color: white;
+  text-decoration: none;
+}
+
+.h1 {
+  color: white;
+  margin-bottom: 300px;
+}
+
+.p {
+  color: silver;
+  margin-top: 20px;
+}
+
+.left {
+  width: 50%;
+}
+
+.right {
+  width: 50%;
+}
+
+.vl {
+  width: 2.1px;
+  height: 100px;
+  background-color: white;
+  border-radius: 2px;
+  opacity: 20%;
+  display: inline-block;
+}
+
+.type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.img {
+  max-width: 100%;
+}
+
+.video {
+  width: 80%;
+}
+
+.buyBtns {
+  margin-top: 10px;
+}
+/*# sourceMappingURL=MotoDetails.css.map */

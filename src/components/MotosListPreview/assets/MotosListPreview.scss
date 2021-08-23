@@ -1,0 +1,23 @@
+.containerOuter{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+  .review {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .seeMore {
+    display: flex;
+    justify-content: space-between
+  }

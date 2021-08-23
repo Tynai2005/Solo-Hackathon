@@ -1,0 +1,61 @@
+.editButton {
+  color: inherit;
+  color: white;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.editButton:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.deleteButton {
+  border: 0;
+  border-radius: 5px;
+  color: black;
+  color: white;
+}
+
+.deleteButton:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.Moto-card {
+  width: 350px;
+  height: 280px;
+  border-radius: 5px;
+  margin: 12px;
+}
+
+.Moto-card-info {
+  margin-top: 30px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  line-height: 25px;
+}
+
+.Moto-img-div {
+  height: 70%;
+}
+
+.Moto-card-img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.Moto-card-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+/*# sourceMappingURL=MotoCard.css.map */

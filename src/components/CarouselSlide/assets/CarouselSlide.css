@@ -1,0 +1,8 @@
+.carousel-photo {
+  margin-top: 10px;
+  width: 100%;
+  height: 700px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+/*# sourceMappingURL=CarouselSlide.css.map */

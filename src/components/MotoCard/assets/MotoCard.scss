@@ -1,0 +1,48 @@
+.editButton {
+    color:  inherit;
+    color:  white;
+    border-radius:  5px;
+    margin-left:  10px;
+    &:hover{
+      transform: scale(1.2);
+      transition: .5s;
+    }
+  }
+.deleteButton{
+    border: 0;
+    border-radius: 5px;
+    color: black;
+    color: white;
+    &:hover{
+      transform: scale(1.2);
+      transition: .5s;
+    }
+  }
+
+.Moto-card {
+    width: 350px;
+    height: 280px;
+    border-radius: 5px;
+    margin: 12px;
+  }
+  .Moto-card-info {
+    margin-top: 30px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    line-height: 25px;
+  }
+  .Moto-img-div {
+    height: 70%;
+  }
+  .Moto-card-img:hover {
+    transform: scale(1.1);
+    transition: .5s;
+  }
+
+  .Moto-card-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+  

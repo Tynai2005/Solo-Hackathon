@@ -1,0 +1,55 @@
+
+.left{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 80vh;
+}
+.mainContainer{
+  width: 100%;
+}
+.grids{
+  margin: 20px 0;
+  width: 100%;
+}
+.imgs{
+  max-width: 200px;
+  max-height: 250px;
+}
+.text{
+  color: white;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.information{
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.mainGrid{
+  width: 100%;
+  height: 600px;
+}
+.mainImg{
+  width: 100%;
+  height: 600px;
+  background-image: url(https://besthqwallpapers.com/img/original/134454/dark-walnut-board-4k-dark-wooden-texture-macro-dark-walnut.jpg);
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainText{
+  font-size: 100px;
+  color: white;
+}
+.part{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

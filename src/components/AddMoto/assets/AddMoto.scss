@@ -1,0 +1,19 @@
+@import '../../../variables/Variables.css';
+
+.container{
+    display: flex;
+    justify-content: center;
+  }
+
+.btns{
+    background-color: #0099ff;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+  }
+
+.text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
