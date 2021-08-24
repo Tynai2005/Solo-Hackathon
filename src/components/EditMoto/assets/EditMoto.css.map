@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,UAAU,CAAC;EACP,UAAU,EAAE,IAAI;CACnB",
+    "mappings": "ACAA,OAAO,CAAC,uEAAI;ADEZ,AAAA,UAAU,CAAC;EACP,UAAU,EAAE,IAAI;EAChB,WAAW,ECFR,YAAY,EAAE,OAAO;EDGxB,UAAU,EAAE,MAAM;CACrB",
     "sources": [
-        "EditMoto.scss"
+        "EditMoto.scss",
+        "../../../variables/Variables.scss"
     ],
     "names": [],
     "file": "EditMoto.css"

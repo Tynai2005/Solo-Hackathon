@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 .container {
   display: "flex";
   -ms-flex-wrap: "wrap";
@@ -55,8 +56,10 @@
 }
 
 .motoDescr {
-  color: "white";
+  color: "black";
   font-size: "15px";
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
 }
 
 .nomoto {
@@ -69,6 +72,8 @@
 .libraryText {
   color: "white";
   margin: "20px";
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
 }
 
 .playBtn {
@@ -78,5 +83,7 @@
   border-radius: "5px";
   z-index: "0";
   width: "100%";
+  font-family: "Bebas Neue", cursive !important;
+  font-style: italic;
 }
 /*# sourceMappingURL=Library.css.map */

@@ -4,7 +4,7 @@
 }
 
 .inpColor {
-  color: white;
+  color: $FontColor;;
 }
 
 .form {
@@ -48,6 +48,6 @@
 
 .payBtn {
   background-color: green;
-  color: white;
+  color: $FontColor;;
 }
 /*# sourceMappingURL=Purchase.css.map */

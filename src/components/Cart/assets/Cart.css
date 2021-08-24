@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 .text {
   color: "white";
   margin-left: "10px";
@@ -20,10 +21,14 @@
 
 .title {
   color: "white";
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
 }
 
 .container {
   display: "flex";
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
 }
 
 .price {

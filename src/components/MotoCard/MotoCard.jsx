@@ -27,11 +27,11 @@ const MotoCard = ({ Moto }) => {
         />
       </div>
       <div className="Moto-card-info">
-        <div style={{ fontFamily: "Roboto", color: "gainsboro" }}>
+        <div>
           {Moto.name}
         </div>
-        <div style={{ color: "silver", fontSize: "12px" }}>{Moto.creator}</div>
-        <div style={{ color: "gainsboro", fontSize: "15px" }}>
+        <div>{Moto.brand}</div>
+        <div>
           {Moto.price == 0 ? "Free to play" : Moto.price + "$"}
         </div>
         {currentUser && isAdmin ? (

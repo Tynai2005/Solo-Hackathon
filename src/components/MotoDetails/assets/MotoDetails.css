@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 .detailsContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8,25 +9,33 @@
   width: 100%;
 }
 
+.details {
+  width: 80%;
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
+  color: black;
+}
+
 .hr {
-  color: white;
+  color: black;
   border: 1px solid white;
   border-radius: 5px;
   margin: 50px 0;
 }
 
 .homeLink {
-  color: white;
+  color: black;
   text-decoration: none;
 }
 
 .h1 {
-  color: white;
+  color: black;
   margin-bottom: 300px;
 }
 
 .p {
-  color: silver;
+  font-family: 'Roboto', serif;
+  color: black;
   margin-top: 20px;
 }
 
@@ -41,7 +50,7 @@
 .vl {
   width: 2.1px;
   height: 100px;
-  background-color: white;
+  background-color: black;
   border-radius: 2px;
   opacity: 20%;
   display: inline-block;

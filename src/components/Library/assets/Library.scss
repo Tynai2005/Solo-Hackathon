@@ -1,4 +1,6 @@
-  .container{
+@import '../../../variables/Variables.scss';
+
+ .container{
     display: "flex";
     flex-wrap: "wrap";
     justify-content: "center";
@@ -37,8 +39,10 @@
     font-size: "15px";
   }
   .motoDescr{
-    color: "white";
+    color: "black";
     font-size: "15px";
+    font-family: $Font;
+    font-style: italic;
   }
   .nomoto{
     color: "white";
@@ -49,6 +53,8 @@
   .libraryText{
     color: "white";
     margin: "20px";
+    font-family: $Font;
+    font-style: italic;
   }
   .playBtn{
     color: "white";
@@ -57,4 +63,6 @@
     border-radius: "5px";
     z-index: "0";
     width: "100%";
+    font-family: $Font !important;
+    font-style: italic;
   }

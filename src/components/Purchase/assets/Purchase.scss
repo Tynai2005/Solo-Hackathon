@@ -3,7 +3,7 @@
     border-bottom: 1px white solid;
   }
   .inpColor{
-    color: white;
+    color: $FontColor;;
   }
   .form{
     display: flex;
@@ -26,5 +26,5 @@
   }
   .payBtn{
     background-color: green;
-    color: white;
+    color: $FontColor;;
   }

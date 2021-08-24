@@ -18,9 +18,9 @@ const Contacts = () => {
           </div>
           <div className='cards'>
             <Typography variant="h5" component="h5">
-              Amantay: +996(559)-88-55-80
+              <div className='text'>Amantay: +996(559)-88-55-80</div>
               <br />
-              Tynai: +996(703)-81-15-73
+              <div className='text'>Tynai: +996(703)-81-15-73</div> 
             </Typography>
           </div>
         </CardContent>

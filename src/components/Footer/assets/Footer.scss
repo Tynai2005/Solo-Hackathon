@@ -1,15 +1,19 @@
+@import '../../../variables/Variables.scss';
+
 .footer{
     width: 100%;
     background-color: black;
   };
   .icons{
-    color: white;
+    color: $FontColor;;
   };
   .text{
-    color: grey;
+    color: $FontColor;;
     width: 100%;
     text-align: center;
     padding: 10px 0;
+    font-family: $Font;
+    font-style: italic;
   };
   .iconsFooter{
     padding: 10px 0;

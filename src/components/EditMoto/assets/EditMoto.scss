@@ -1,3 +1,7 @@
+@import '../../../variables/Variables.scss';
+
 .modalMarg {
-    margin-top: 40px,
+    margin-top: 40px;
+    font-family: $Font;
+    font-style: italic;
 }

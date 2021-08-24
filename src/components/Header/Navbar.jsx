@@ -25,6 +25,8 @@ import { AuthContext, useAuth } from "../../contexts/AuthContext";
 const useStyles = makeStyles((theme) => ({
   menuBtn: {
     textDecoration: "none",
+    fontFamily: 'Bebas Neue, cursive !important',
+    fontStyle: 'italic !important',
   },
   grow: {
     flexGrow: 1,
@@ -32,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
   navbarBtn: {
     color: "white",
     textDecoration: "none",
+    fontFamily: 'Bebas Neue, cursive !important',
+    fontStyle: 'italic !important',
+    fontSize: '20px'
   },
 
   menuButton: {
@@ -95,12 +100,13 @@ const useStyles = makeStyles((theme) => ({
   navbar: {
     display: "flex",
     justifyContent: "space-between",
-    backgroundColor: "peachpuff",
     height: "20%",
+    backgroundColor: '#ce1e1e',
   },
   appBar: {
-    backgroundColor: "peachpuff",
     opacity: "90%",
+    backgroundColor: '#ce1e1e',
+
   },
 
   menu: {
@@ -185,12 +191,12 @@ export default function PrimarySearchAppBar() {
       >
         <MenuItem>
           {!isAllMotos ? (
-            <Button className={classes.menuBtn} onClick={toMotosList}>
-              Home
+            <Button onClick={toMotosList}>
+              <div className={classes.menuBtn}>Home</div> 
             </Button>
           ) : (
-            <Button className={classes.menuBtn} onClick={toHome}>
-              All Motos
+            <Button onClick={toHome}>
+              <div className={classes.menuBtn}>All Motos</div> 
             </Button>
           )}
         </MenuItem>
@@ -205,7 +211,7 @@ export default function PrimarySearchAppBar() {
           ) : null}
         </MenuItem>
         <MenuItem onClick={() => history.push("/cart")}>
-          <Button>Cart</Button>
+          <Button  className={classes.menuBtn}>Cart</Button>
         </MenuItem>
       </Menu>
     </>

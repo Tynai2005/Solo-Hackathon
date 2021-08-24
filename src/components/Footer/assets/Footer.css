@@ -1,17 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 .footer {
   width: 100%;
   background-color: black;
 }
 
 .icons {
-  color: white;
+  color: $FontColor;;
 }
 
 .text {
-  color: grey;
+  color: $FontColor;;
   width: 100%;
   text-align: center;
   padding: 10px 0;
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
 }
 
 .iconsFooter {

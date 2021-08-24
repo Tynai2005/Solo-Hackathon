@@ -1,23 +1,29 @@
-// @import '../../../styles/Styles.css';
+@import '../../../variables/Variables.scss';
 
 
 .btns{
     background-color: #0099ff;
-    color: white;
+    color: $FontColor;;
     padding: 10px 20px;
+    font-family: $Font;
+    font-style: italic;
   }
   .inps{
     margin: 10px 0;
     border-bottom: 1px white solid;
+    font-family: $Font;
+    font-style: italic;
   }
   .inpColor{
-    color: white;
+    color: $FontColor;;
   }
 
   .container{
     margin: 50px;
     display: flex;
     justify-content: center ;
+    font-family: $Font;
+    font-style: italic;
   }
 
   .cont{
@@ -30,7 +36,7 @@
 
   }
   .visBtn{
-    color: white;
+    color: $FontColor;;
     margin-left: -50px;
   }
   .grids{

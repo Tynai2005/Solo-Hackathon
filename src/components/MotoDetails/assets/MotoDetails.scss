@@ -1,26 +1,35 @@
+@import '../../../variables/Variables.scss'; 
 
 .detailsContainer{
     display: flex;
     justify-content: center;
     width: 100%;
-    
   }
+
+.details{
+  width: 80%;
+  font-family: $Font;
+  font-style: italic;
+  color: $FontColor;
+}
+
 .hr{
-    color: white;
+    color: $FontColor;;
     border: 1px solid white;
     border-radius: 5px;
     margin: 50px 0;
   }
 .homeLink{
-    color: white;
+    color: $FontColor;;
     text-decoration: none;
   }
 .h1{
-    color: white;
+    color: $FontColor;;
     margin-bottom: 300px;
   }
 .p{
-    color: silver;
+    font-family: 'Roboto', serif;
+    color: $FontColor;
     margin-top: 20px;
   }
 .left{
@@ -32,7 +41,7 @@
 .vl{
     width: 2.1px;
     height: 100px;
-    background-color: white;
+    background-color: $FontColor;;
     border-radius: 2px;
     opacity: 20%;
     display: inline-block;

@@ -1,16 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 .btns {
   background-color: #0099ff;
-  color: white;
+  color: $FontColor;;
   padding: 10px 20px;
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
 }
 
 .inps {
   margin: 10px 0;
   border-bottom: 1px white solid;
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
 }
 
 .inpColor {
-  color: white;
+  color: $FontColor;;
 }
 
 .container {
@@ -21,6 +26,8 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
 }
 
 .cont {
@@ -37,7 +44,7 @@
 }
 
 .visBtn {
-  color: white;
+  color: $FontColor;;
   margin-left: -50px;
 }
 

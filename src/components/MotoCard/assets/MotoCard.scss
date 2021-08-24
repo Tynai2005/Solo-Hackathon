@@ -1,6 +1,8 @@
+@import '../../../variables/Variables.scss';
+
 .editButton {
     color:  inherit;
-    color:  white;
+    color: $FontColor;
     border-radius:  5px;
     margin-left:  10px;
     &:hover{
@@ -11,8 +13,8 @@
 .deleteButton{
     border: 0;
     border-radius: 5px;
-    color: black;
-    color: white;
+    color: $FontColor;
+    color: $FontColor;
     &:hover{
       transform: scale(1.2);
       transition: .5s;
@@ -24,12 +26,15 @@
     height: 280px;
     border-radius: 5px;
     margin: 12px;
+    color: $FontColor;
+
   }
   .Moto-card-info {
     margin-top: 30px;
-    font-family: "Roboto", sans-serif;
-    font-weight: bold;
+    font-family: $Font;
+    font-style: italic;
     line-height: 25px;
+    font-size: 20px;
   }
   .Moto-img-div {
     height: 70%;

@@ -1,13 +1,15 @@
-@import '../../../variables/Variables.css';
+@import '../../../variables/Variables.scss';
 
 .container{
     display: flex;
     justify-content: center;
+    font-family: $Font;
+    font-style: italic;
   }
 
 .btns{
     background-color: #0099ff;
-    color: white;
+    color: $FontColor;;
     padding: 10px 20px;
     margin: 0 10px;
   }

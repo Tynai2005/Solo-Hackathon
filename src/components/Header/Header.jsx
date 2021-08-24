@@ -17,13 +17,14 @@ import { Link } from "react-router-dom";
 import { AuthContext} from "../../contexts/AuthContext";
 import { useMotos } from "../../contexts/MotoContext";
 import firebase from "../../base";
+import '../../variables/Variables.css'
 
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
   },
   navbar: {
-    backgroundColor: "orange",
+    backgroundColor: "orange !important",
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -33,6 +34,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       display: "block",
     },
+    fontFamily: 'Bebas Neue, cursive',
+    fontStyle: 'italic',
   },
   search: {
     position: "relative",
@@ -84,6 +87,9 @@ const useStyles = makeStyles((theme) => ({
   },
   navbarBtn: {
     color: "white",
+    fontFamily: 'Bebas Neue, cursive',
+    fontStyle: 'italic',
+    fontSize: '18px'
   },
   logo: {
     color: "inherit",
@@ -95,7 +101,13 @@ const useStyles = makeStyles((theme) => ({
   a: {
     textDecoration: "none",
     color: "black",
+    fontFamily: 'Bebas Neue, cursive !important',
+    fontStyle: 'italic !important',
   },
+  navbarBtnMobile:{
+    fontFamily: 'Bebas Neue, cursive !important',
+    fontStyle: 'italic !important',
+  }
 }));
 
 export default function Header() {
@@ -138,14 +150,14 @@ export default function Header() {
       {!currentUser ? (
         <div>
           <Link to="/login" className={classes.a}>
-            <MenuItem onClick={handleMenuClose}>Log in</MenuItem>
+            <MenuItem className={classes.a}  onClick={handleMenuClose}>Log in</MenuItem>
           </Link>
           <Link to="/signup" className={classes.a}>
-            <MenuItem onClick={handleMenuClose}>Sign up</MenuItem>
+            <MenuItem  className={classes.a} onClick={handleMenuClose}>Sign up</MenuItem>
           </Link>
         </div>
       ) : (
-        <MenuItem onClick={() => (handleMenuClose(), firebase.auth().signOut(),localStorage.removeItem('user'))}>Log out</MenuItem>
+        <MenuItem className={classes.a} onClick={() => (handleMenuClose(), firebase.auth().signOut(),localStorage.removeItem('user'))}>Log out</MenuItem>
       )}
     </Menu>
   );
@@ -165,15 +177,15 @@ export default function Header() {
         <IconButton aria-label="show 4 new mails" color="inherit">
           <ContactsIcon />
         </IconButton>
-        <p>Contacts</p>
+        <p className={classes.navbarBtnMobile}>Contacts</p>
       </MenuItem>
       <MenuItem onClick={() => history.push("/aboutus")}>
         <IconButton aria-label="show 11 new notifications" color="inherit">
           <InfoIcon />
         </IconButton>
-        <p> About us</p>
+        <p className={classes.navbarBtnMobile}> About us</p>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
+      <MenuItem className={classes.navbarBtnMobile} onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
@@ -181,7 +193,7 @@ export default function Header() {
           color="inherit"
         >
           <AccountCircle />
-        </IconButton>
+        </IconButton  >
         {currentUser ? <>{currentUser.email}</> : "Profile"}
       </MenuItem>
     </Menu>
@@ -191,7 +203,7 @@ export default function Header() {
     <>
       <div className={classes.grow}>
         <AppBar position="sticky" className={classes.navbar}>
-          <Toolbar>
+          <Toolbar className={classes.navbar}>
             <Link to="/" onClick={toMotosList} className={classes.logo}>
               <Typography className={classes.title} variant="h4" noWrap>
                 <img src={logo} alt="logo" className={classes.logo} />

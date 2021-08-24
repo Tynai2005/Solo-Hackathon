@@ -1,7 +1,10 @@
+@import '../../../variables/Variables.scss';
+
 .text{
     color: "white";
     margin-left: "10px";
     font-size: "20px";
+    
   };
   .img{
     width: "15%";
@@ -15,9 +18,13 @@
   };
   .title{
     color: "white";
+    font-family: $Font;
+    font-style: italic;
   };
   .container{
     display: "flex";
+    font-family: $Font;
+    font-style: italic;
   };
   .price{
     color: "white";

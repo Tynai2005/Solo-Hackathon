@@ -1,38 +1,71 @@
-.container{
-    margin: 40px;
-    min-height: 80vh;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+.container {
+  margin: 40px;
+  min-height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
+}
 
-  .bullet{
-    display: inline-block;
-    margin: 0 2px;
-    transform: scale(0.8);
-  }
-  .title{
-    font-size: 14px;
-  }
-  .pos{
-    margin-bottom: 12px;
-  }
-  .icons{
-    width: 200px;
-    height: 200px;
-  }
-  .card{
-    width: 400px;
-    max-height: 400px;
-    margin: 30px;
-  }
-  .cards{
-    width: 100%;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .hrefs{
-    text-decoration: none;
-  }
+.text {
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
+  color: black;
+}
+
+.bullet {
+  display: inline-block;
+  margin: 0 2px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+.title {
+  font-size: 14px;
+}
+
+.pos {
+  margin-bottom: 12px;
+}
+
+.icons {
+  width: 200px;
+  height: 200px;
+}
+
+.card {
+  width: 400px;
+  max-height: 400px;
+  margin: 30px;
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
+}
+
+.cards {
+  width: 100%;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
+}
+
+.hrefs {
+  text-decoration: none;
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
+}
+/*# sourceMappingURL=Contacts.css.map */

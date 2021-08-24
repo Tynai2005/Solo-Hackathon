@@ -1,4 +1,4 @@
-@import url(c:\Users\User\Desktop\All\Projects\solo-hackathon-2\src\variables\Variables.css);
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6,11 +6,13 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
 }
 
 .btns {
   background-color: #0099ff;
-  color: white;
+  color: $FontColor;;
   padding: 10px 20px;
   margin: 0 10px;
 }

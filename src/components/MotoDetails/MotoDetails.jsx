@@ -152,7 +152,7 @@ const MotoDetails = () => {
                 />
               </div>
               {currentUser ?               
-              <div style={{ color: "white" }}>
+              <div >
                 {isLiked ? (
                   <FavoriteIcon
                     onClick={dislike}
@@ -166,7 +166,7 @@ const MotoDetails = () => {
                 )}
                 {likesCount} likes
               </div> : null}
-              <h3 style={{ color: "white" }}>{MotoDetails.price}$</h3>
+              <h3>{MotoDetails.price}$</h3>
               {!isInLibrary ? 
               <><div className='buyBtns'>
               <Button
