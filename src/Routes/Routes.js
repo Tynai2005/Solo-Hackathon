@@ -11,12 +11,12 @@ import LogIn from "../components/Auth/LogIn";
 import AuthContextProvider from "../contexts/AuthContext";
 import SignUp from "../components/Auth/SignUp";
 import ProtectedRoute from "./ProtectedRoute";
-import { CardTravel } from "@material-ui/icons";
 import Cart from "../components/Cart/Cart";
 import Purchase from "../components/Purchase/Purchase";
 import Library from "../components/Library/Library";
 import AboutUs from "../components/Information/AboutUs";
 import Contacts from "../components/Information/Contacts";
+import Chat from "../components/Chat/Chat";
 
 const Routes = () => {
   return (
@@ -31,6 +31,7 @@ const Routes = () => {
               <ProtectedRoute exact path="/library" component={Library} />
               <ProtectedRoute exact path="/purchase" component={Purchase} />
               <ProtectedRoute exact path="/cart" component={Cart} />
+              <ProtectedRoute exact path="/chat" component={Chat} />
               <Route exact path="/login" component={LogIn} />
               <Route exact path="/signup" component={SignUp} />
               <Route exact path="/" component={Home} />

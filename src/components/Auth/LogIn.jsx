@@ -63,7 +63,7 @@ const Login = () => {
       <form action="" className='cont'>
         <Grid container className='containers'>
           <div>
-            <Typography component="h1" variant="h5" style={{ color: "white" }}>
+            <Typography component="h1" variant="h5" color='black' style={{ color: "black"}}>
               Authorization
             </Typography>
           </div>
@@ -78,7 +78,7 @@ const Login = () => {
                 className: 'inpColor',
               }}
               InputLabelProps={{
-                style: { color: "#fff" },
+                style: { color: "black" },
               }}
               onChange={(e) =>
                 setNewUser({
@@ -100,7 +100,7 @@ const Login = () => {
                 className: 'inpColor',
               }}
               InputLabelProps={{
-                style: { color: "#fff" },
+                style: { color: "black" },
               }}
               onChange={(e) =>
                 setNewUser({ ...newUser, password: e.target.value })
@@ -116,7 +116,7 @@ const Login = () => {
               {!visible ? <VisibilityIcon /> : <VisibilityOffIcon />}
             </IconButton>
           </Grid>
-          <Grid>
+          <Grid className='buttons'> 
             {exist ? (
               <Typography className='text'>
                 No such user exists. Wanna <Link to="/signup">sign up</Link>?

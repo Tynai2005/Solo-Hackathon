@@ -12,42 +12,22 @@ const AboutUs = () => {
       </Grid>
       <Container className='container'>
         <Grid className='grids'>
-          <h2 style={{ color: "white" }}>About us</h2>
-          <Typography className='text' style={{ fontSize: "20px" }}>
-            Hello there! Here is information about team, that worked on this
-            project. This team's name is projector. Our team consists of 2
-            participants: Amantay and Tynai. There is information about us, look
-            below.
-          </Typography>
+          <h2 >About De Moto</h2>
+          <h2 className='text'>
+            Hello there! Here is information about man, who worked on this
+            project. This project's name is "De Moto"
+          </h2>
+          <div className='text'>
+              <div className='information'>
+              <img className='imgs' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiewXcyqeDVxaqnyVt9fWQJ8FWlm3YZ0yY6A&usqp=CAU" alt="" />
+                <p className='text'>Name: Tyynai</p>
+                <p className='text'>Age: 16</p>
+                <p className='text'>Languages: JS,Python</p>
+                <p className='text'>Nationality: Kyrgyz</p>
+              </div>
+            </div>
         </Grid>
         <Grid className='grids'>
-          <h2 style={{ color: "white" }}>Participants</h2>
-          <div className='part'>
-            <div className='left'>
-              <img
-                className='imgs'
-                src="https://images.unsplash.com/photo-1586083702768-190ae093d34d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fG1hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
-              />
-              <div className='information'>
-                <p className='text'>Name: Tynai</p>
-                <p className='text'>Age: 16</p>
-                <p className='text'>Language: JS, Python</p>
-                <p className='text'>Nationality: Kyrgyz</p>
-              </div>
-            </div>
-            <div className='left'>
-              <img
-                className='imgs'
-                src="https://www.meme-arsenal.com/memes/6bb1c05df00b0dfd4fdda878e5858d29.jpg"
-              />
-              <div className='information'>
-                <p className='text'>Name: Amantay</p>
-                <p className='text'>Age: 16</p>
-                <p className='text'>Language: JS</p>
-                <p className='text'>Nationality: Kyrgyz</p>
-              </div>
-            </div>
-          </div>
         </Grid>
       </Container>
     </div>

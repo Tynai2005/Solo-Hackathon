@@ -6,6 +6,7 @@ import { Container } from "react-bootstrap";
 import Button from "@material-ui/core/Button";
 import { Grid, makeStyles } from "@material-ui/core";
 import './assets/MotosListPreview.css'
+import { Link } from "react-router-dom";
 
 const MotosListPreview = () => {
   const { getMotosData, MotosData, history } = useMotos();
@@ -19,10 +20,11 @@ const MotosListPreview = () => {
   return (
     <div className="containerOuter">
       <Container className='container'>
+      <br />
       <Grid className='seeMore'>
-        <h4 style={{ color: "white", fontFamily: "Noto Sans JP" }}>
+        <h2 style={{ color: "black"}}>
           All Motos
-        </h4>
+        </h2>
       </Grid>
       <Grid className='review'>
         {MotosData &&
@@ -35,13 +37,15 @@ const MotosListPreview = () => {
       </Grid>
       <Button
           variant="contained"
-          color="primary"
+          className='see-more'
           onClick={() => {
             history.push("/Motoslist");
           }}
         >
-          See More...
+          See More Motos...
         </Button>
+        <br />
+        <h1 className='about-us'>Join our free <Link to="/chat" >chat</Link></h1>
     </Container>
     </div>
   );

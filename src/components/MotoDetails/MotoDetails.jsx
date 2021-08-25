@@ -60,7 +60,7 @@ const MotoDetails = () => {
 
   const handleIsInLibrary = async () => {
     const curMoto = await axios(`${MOTOS_API}/${curMotoId}`); 
-    curMoto?.data.library.map((email) => {if(currentUser.email == email){setIsInLibrary(true)}})
+    curMoto?.data.library.map((email) => {if(currentUser?.email == email){setIsInLibrary(true)}})
   }
 
   const handleLikesCount = async () => {
@@ -73,9 +73,6 @@ const MotoDetails = () => {
     setLikesCount(curMoto.data.likes.length);
   }
 
-  console.log(currentUser);
-
-
   const handleIsInCart = async () => {  
     const curMoto = await axios(`${MOTOS_API}/${curMotoId}`)
     curMoto.data.wishlist.map((email) => {if(email == currentUser?.email){setIsInCart(true)}})
@@ -83,7 +80,7 @@ const MotoDetails = () => {
 
   const addMotoCart = async () => {
     const motoToCart = await axios(`${MOTOS_API}/${curMotoId}`);
-    motoToCart.data.wishlist.push(currentUser.email)
+    motoToCart.data.wishlist.push(currentUser?.email)
     await axios.patch(`${MOTOS_API}/${curMotoId}`,motoToCart.data)
     getMotoDetails(curMotoId);
     setIsInCart(true)
@@ -127,29 +124,25 @@ const MotoDetails = () => {
     <Container>
       <div className='detailsContainer'>
         <div className='details'>
-          <Link to="/" onClick={toMotosList}>
-            <HomeIcon />
-          </Link>
           <hr className="hr" />
-          <div style={{ display: "flex" }}>
+          <div style={{}}>
             <div className='left'>
               <h1 className='h1'>{MotoDetails.name}</h1>
-              <p className='p'>{MotoDetails.description}</p>
+              <br />
+                <img
+                  className='imgDet'
+                  src={MotoDetails.image}
+                  alt="Moto img"
+                />
+            </div>
+            <div className='right'>
+            <p className='p'>{MotoDetails.description}</p>
+            <h3><div style={{fontFamily: 'Roboto',fontSize:'15px'}}>Price:</div> {MotoDetails.price}$</h3>
               <div className='type'>
-                <div class='vl'></div>
                 <div>
                   <h6 className='p'>type:</h6>
                   <h5 className='h1'>{MotoDetails.type}</h5>
                 </div>
-              </div>
-            </div>
-            <div className='right'>
-              <div>
-                <img
-                  className='img'
-                  src={MotoDetails.image}
-                  alt="Moto img"
-                />
               </div>
               {currentUser ?               
               <div >
@@ -165,53 +158,61 @@ const MotoDetails = () => {
                   />
                 )}
                 {likesCount} likes
-              </div> : null}
-              <h3>{MotoDetails.price}$</h3>
-              {!isInLibrary ? 
-              <><div className='buyBtns'>
-              <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={() => {
-                    history.push("/purchase");
-                    toBuyNow(curMotoId);
-                  }}
-                >
-                  Buy now
-                </Button>
-            </div>
-          <div className='buyBtns'>
-                 {currentUser ?  
-                  <>{isInCart ?
+              </div> : 
+              <div>
+                  <FavoriteIcon
+                    style={{ color: "red", margin: "5px" }}
+                  />
+                  {likesCount} likes
+              </div>
+              }
+              {currentUser ? 
+              <>{!isInLibrary ? 
+                <><div className='buyBtns'>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => {
+                      history.push("/purchase");
+                      toBuyNow(curMotoId);
+                    }}
+                  >
+                    Buy now
+                  </Button>
+              </div>
+              <div className='buyBtns'>
+                   {currentUser ?  
+                    <>{isInCart ?
+                      <Button
+                        variant="outlined"
+                        color={buttonColor}
+                        onClick={() => {
+                          deleteMotoCart(curMotoId);
+                          getMotoDetails(curMotoId);
+                        }}
+                      >
+                        Delete from cart
+                      </Button>
+                      : 
                     <Button
                       variant="outlined"
                       color={buttonColor}
                       onClick={() => {
-                        deleteMotoCart(curMotoId);
-                        getMotoDetails(curMotoId);
+                        addMotoCart();
                       }}
                     >
-                      Delete from wishlist
-                    </Button>
-                    : 
-                  <Button
-                    variant="outlined"
-                    color={buttonColor}
-                    onClick={() => {
-                      addMotoCart();
-                    }}
-                  >
-                    Add to wishlist
-                  </Button>}</>
-                    :
-                  <Button
-                    variant="outlined"
-                    color={buttonColor}
-                    onClick={() => history.push("/login")}
-                  >
-                    Add to wishlist
-                  </Button>}
-            </div></> : <p>Already in library</p>}
+                      Add to cart
+                    </Button>}</>
+                      :
+                    <Button
+                      variant="outlined"
+                      color={buttonColor}
+                      onClick={() => history.push("/login")}
+                    >
+                      Add to cart
+                    </Button>}
+              </div></> : <p>Already in library</p>}</>
+              : null}
             </div>
           </div>
           <hr className='hr' />

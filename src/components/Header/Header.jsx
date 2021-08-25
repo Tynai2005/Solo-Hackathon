@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import logo from "../../IMG/logo2.png";
+import logo from "../../IMG/logo3.png";
 import { alpha, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -16,6 +16,7 @@ import InfoIcon from "@material-ui/icons/Info";
 import { Link } from "react-router-dom";
 import { AuthContext} from "../../contexts/AuthContext";
 import { useMotos } from "../../contexts/MotoContext";
+import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutlined';
 import firebase from "../../base";
 import '../../variables/Variables.css'
 
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   navbar: {
-    backgroundColor: "orange !important",
+    backgroundColor: "white  !important",
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -89,12 +90,16 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     fontFamily: 'Bebas Neue, cursive',
     fontStyle: 'italic',
-    fontSize: '18px'
+    fontSize: '18px',
+    '&:hover':{
+      transition: '0.5s',
+      transform: 'scale(1.1)',
+    },
   },
   logo: {
     color: "inherit",
     textDecoration: "none",
-    width: "300px",
+    width: "200px",
     height: '100px',
     marginLeft: '0px',
   },
@@ -107,6 +112,9 @@ const useStyles = makeStyles((theme) => ({
   navbarBtnMobile:{
     fontFamily: 'Bebas Neue, cursive !important',
     fontStyle: 'italic !important',
+  },
+  p:{
+    color: 'black',
   }
 }));
 
@@ -164,6 +172,7 @@ export default function Header() {
 
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
+    <>
     <Menu
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{ vertical: "top", horizontal: "right" }}
@@ -172,10 +181,18 @@ export default function Header() {
       transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
+      className={classes.p}
     >
+      <MenuItem>
+      <Link to="/" onClick={toMotosList} className={classes.logo}>
+              <Typography className={classes.title} variant="h4" noWrap>
+                <img src={logo} alt="logo" className={classes.logo} />
+              </Typography>
+            </Link>
+      </MenuItem>
       <MenuItem onClick={() => history.push("/contacts")}>
         <IconButton aria-label="show 4 new mails" color="inherit">
-          <ContactsIcon />
+          <ContactSupportOutlinedIcon />
         </IconButton>
         <p className={classes.navbarBtnMobile}>Contacts</p>
       </MenuItem>
@@ -197,6 +214,7 @@ export default function Header() {
         {currentUser ? <>{currentUser.email}</> : "Profile"}
       </MenuItem>
     </Menu>
+    </>
   );
 
   return (
@@ -216,15 +234,15 @@ export default function Header() {
                 className={classes.navbarBtn}
                 onClick={() => history.push("/contacts")}
               >
-                <ContactsIcon style={{ marginRight: "5px" }} />
-                Contacts
+                <ContactSupportOutlinedIcon className={classes.p} />
+                <div className={classes.p}>Contacts</div>
               </Button>
               <Button
                 className={classes.navbarBtn}
                 onClick={() => history.push("/aboutus")}
               >
-                <InfoIcon style={{ marginRight: "5px" }} />
-                About us
+                <InfoIcon className={classes.p} style={{ marginRight: "5px" }} />
+               <div className={classes.p}>About us</div>
               </Button>
               <Button
                 className={classes.navbarBtn}
@@ -235,8 +253,8 @@ export default function Header() {
                 onClick={handleProfileMenuOpen}
                 color="inherit"
               >
-                <AccountCircle style={{ marginRight: "5px" }} />
-                {currentUser ? <>{ currentUser.email}</> : null}
+                <AccountCircle className={classes.p} style={{ marginRight: "5px" }} />
+                {currentUser ? <div className={classes.p}>{ currentUser.email}</div> : null}
               </Button>
             </div>
             <div className={classes.sectionMobile}>
@@ -245,7 +263,7 @@ export default function Header() {
                 aria-controls={mobileMenuId}
                 aria-haspopup="true"
                 onClick={handleMobileMenuOpen}
-                color="inherit"
+                color="black"
               >
                 <MoreIcon />
               </IconButton>

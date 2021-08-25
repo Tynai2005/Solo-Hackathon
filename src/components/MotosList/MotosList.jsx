@@ -21,39 +21,6 @@ import { getCurrentPage } from "../../helper/functions";
 import { useState } from "react";
 import './assets/MotoList.css'
 
-// const useStyles = makeStyles((theme) => ({
-//   container: {
-//     width: "100%",
-//     display: "flex",
-//     flexWrap: "wrap",
-//     flexDirection: "column",
-//   },
-//   grids: {
-//     display: "flex",
-//     flexDirection: "row",
-//     flexWrap: "wrap",
-//     justifyContent: "center",
-//   },
-//   addMoto: {
-//     textDecoration: "none",
-//     color: "white",
-//   },
-//   sorryH1: {
-//     color: "white",
-//     height: "80vh",
-//   },
-//   addBtn: {
-//     backgroundColor: "green",
-//     color: "white",
-//   },
-//   menuMobile: {
-//     left: 15,
-//     backgroundColor: "white",
-//     color: "black",
-//     opacity: "80%",
-//     zIndex: 1,
-//   },
-// }));
 const MotosList = () => {
   const { currentUser,isAdmin } = useContext(AuthContext);
   const { getMotosData, MotosData, modal, pages, history } = useMotos();
@@ -181,67 +148,67 @@ const MotosList = () => {
         style={{ justifyContent: "space-between", margin: "20px 0" }}
       >
         <div>
-          <button onClick={() => setSortMenu(!sortMenu)}>Sort {'&'} Filter</button>
+          <button className='sort-button' onClick={() => setSortMenu(!sortMenu)}>Sort {'&'} Filter</button>
           {sortMenu ? (
             <div className='menuMobile'>
               <RadioGroup value={type} style={{display:'inline'}} onChange={changetype}>
                 <h5>By type:</h5>
                 <FormControlLabel
-                  className='mobileMenuItem'
+                  className='menuItem'
                   value="Standard"
                   control={<Radio />}
                   label="Standard"
                 />
                 <FormControlLabel
-                  className='mobileMenuItem'
+                  className='menuItem'
                   value="Cruiser"
                   control={<Radio />}
                   label="Cruiser"
                 />
                 <FormControlLabel
-                  className='mobileMenuItem'
+                  className='menuItem'
                   value="Sport bike"
                   control={<Radio />}
                   label="Sport bike"
                 />
                 <FormControlLabel
-                  className='mobileMenuItem'
+                  className='menuItem'
                   value="Touring"
                   control={<Radio />}
                   label="Touring"
                 />
                 <FormControlLabel
-                  className='mobileMenuItem'
+                  className='menuItem'
                   value="Sport touring"
                   control={<Radio />}
                   label="Sport touring"
                 />
                 <FormControlLabel
-                  className='mobileMenuItem'
+                  className='menuItem'
                   value="Dual sport"
                   control={<Radio />}
                   label="Dual sport"
                 />
                 <FormControlLabel
-                  className='mobileMenuItem'
+                  className='menuItem'
                   value="Scooters"
                   control={<Radio />}
                   label="Scooters"
                 />
                 <FormControlLabel
-                  className='mobileMenuItem'
+                  className='menuItem'
                   value="Mopeds"
                   control={<Radio />}
                   label="Mopeds"
                 />
                 <FormControlLabel
-                  className='mobileMenuItem'
+                  className='menuItem'
                   value="Off-road"
                   control={<Radio />}
                   label="Off-road"
                 />
                 <FormControlLabel
-                  className='mobileMenuItem'
+                  className='menuItem'
                   value="all"
                   control={<Radio />}
                   label="All"

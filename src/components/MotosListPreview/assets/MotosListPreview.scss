@@ -1,3 +1,5 @@
+@import '../../../variables/Variables.scss';
+
 .containerOuter{
   width: 100%;
   display: flex;
@@ -19,5 +21,29 @@
   }
   .seeMore {
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
   }
+
+  .see-more{
+    margin-top: 50px !important;
+    background-color: #ce1e1e !important;
+    font-family: $Font !important;
+    color: white !important;
+    font-style: italic !important;
+    font-size: 20px !important;
+  }
+
+  .about-us{
+    color: $FontColor;
+    font-family: $Font !important;
+    text-align: center;
+    font-style: italic !important;
+  }
+
+  .sort-button{
+    font-family: $Font !important;
+    font-style: italic !important;
+
+  }
+
+  

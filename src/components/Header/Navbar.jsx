@@ -206,7 +206,7 @@ export default function PrimarySearchAppBar() {
               className={classes.menuBtn}
               onClick={() => history.push("/library")}
             >
-              Library
+              My Garage
             </Button>
           ) : null}
         </MenuItem>
@@ -237,7 +237,7 @@ export default function PrimarySearchAppBar() {
                   className={classes.navbarBtn}
                   onClick={() => history.push("/library")}
                 >
-                  Library
+                  My Garage
                 </Button>
               ) : null}
               <Button

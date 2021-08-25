@@ -11,6 +11,7 @@
   font-family: $Font;
   font-style: italic;
   color: $FontColor;
+  margin-bottom: 10px !important;
 }
 
 .hr{
@@ -25,7 +26,8 @@
   }
 .h1{
     color: $FontColor;;
-    margin-bottom: 300px;
+    margin-bottom: 30px;
+    font-size: 30px;
   }
 .p{
     font-family: 'Roboto', serif;
@@ -33,11 +35,15 @@
     margin-top: 20px;
   }
 .left{
-    width: 50%;
+    width: 100%;
   }
+
 .right{
-    width: 50%;
+  margin-top: 30px;
+  width: 100%;
+  margin-left: 10px;
   }
+
 .vl{
     width: 2.1px;
     height: 100px;
@@ -51,8 +57,11 @@
     width: 100px;
     justify-content: space-between;
   }
-.img{
-    max-width: 100%;
+.imgDet{
+    border-radius: 10px;
+    height: 80%;
+    width: 100%;
+    object-fit: cover;
   }
 .video{
     width: 80%;

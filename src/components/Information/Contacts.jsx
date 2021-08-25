@@ -14,24 +14,9 @@ const Contacts = () => {
       <Card className='card'>
         <CardContent>
           <div className='cards'>
-            <PhoneIcon className='icons' />
-          </div>
-          <div className='cards'>
             <Typography variant="h5" component="h5">
-              <div className='text'>Amantay: +996(559)-88-55-80</div>
-              <br />
               <div className='text'>Tynai: +996(703)-81-15-73</div> 
-            </Typography>
-          </div>
-        </CardContent>
-      </Card>
-      <Card className='card'>
-        <CardContent>
-          <div className='cards'>
-            <PermContactCalendarIcon className='icons' />
-          </div>
-          <div className='cards'>
-            <Typography variant="h5" component="h5">
+              <br />
               Youtube:{" "}
               <a
                 target="_blank"
@@ -41,14 +26,6 @@ const Contacts = () => {
                 Тынай Сманов
               </a>
               <br />
-              Instagram:{" "}
-              <a
-                target="_blank"
-                href="https://www.instagram.com/akvamantai/"
-                className='hrefs'
-              >
-                @akvamantai
-              </a>
             </Typography>
           </div>
         </CardContent>

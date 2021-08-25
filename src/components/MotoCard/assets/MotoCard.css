@@ -17,7 +17,6 @@
   border: 0;
   border-radius: 5px;
   color: black;
-  color: black;
 }
 
 .deleteButton:hover {
@@ -31,7 +30,7 @@
   width: 350px;
   height: 280px;
   border-radius: 5px;
-  margin: 12px;
+  margin: 30px 12px;
   color: black;
 }
 
@@ -48,8 +47,8 @@
 }
 
 .Moto-card-img:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
   -webkit-transition: .5s;
   transition: .5s;
 }

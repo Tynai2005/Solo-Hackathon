@@ -1,5 +1,4 @@
 .carousel-photo {
-  margin-top: 10px;
   width: 100%;
   height: 700px;
   -o-object-fit: cover;
@@ -20,7 +19,7 @@
 
 .btns {
   background-color: #0099ff;
-  color: $FontColor;;
   padding: 10px 30px;
 }
+
 /*# sourceMappingURL=CarouselSlide.css.map */

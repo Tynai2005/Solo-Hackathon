@@ -1,52 +1,52 @@
 @import '../../../variables/Variables.scss';
 
 .text{
-    color: "white";
-    margin-left: "10px";
-    font-size: "20px";
+    color: white;
+    margin-left: 10px;
+    font-size: 20px;
     
-  };
+  }
   .img{
-    width: "15%";
-    border-radius: "10px";
-  };
+    width: 15%;
+    border-radius: 10px;
+  }
   .grids{
-    margin: "20px 0";
-    display: "flex";
-    align-items: "center";
-    background-color: "rgb(32 32 32)";
-  };
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    background-color: rgb(32 32 32);
+  }
   .title{
-    color: "white";
+    color: white;
     font-family: $Font;
     font-style: italic;
-  };
+  }
   .container{
-    display: "flex";
+    display: flex;
     font-family: $Font;
     font-style: italic;
-  };
+  }
   .price{
-    color: "white";
-  };
+    color: white;
+  }
   .deleteBtn{
-    color: "white";
-  };
+    color: white;
+  }
   .noMoto{
-    color: "white";
-    height: "80vh";
-    text-align: "center";
-    margin-top: "20px";
-  };
+    color: white;
+    height: 80vh;
+    text-align: center;
+    margin-top: 20px;
+  }
   .buyGrid{
-    display: "flex";
-    justify-content: "space-between";
-  };
+    display: flex;
+    justify-content: space-between;
+  }
   .buyBtn{
-    color: "white";
-    background-color: "green";
-  };
+    color: white;
+    background-color: green;
+  }
   .main{
-    min-height: "100vh";
-    margin: "20px auto";
-  };
+    min-height: 100vh;
+    margin: 20px auto;
+  }

@@ -2,7 +2,7 @@ import Routes from "./Routes/Routes";
 
 function App() {
   return (
-    <div className="App" style={{ backgroundColor: "black"}}>
+    <div className="App" style={{ backgroundColor: "white"}}>
       <Routes />
     </div>
   );

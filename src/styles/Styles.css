@@ -1,24 +1,35 @@
-
-/* @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"); */
+@import url(c:\Users\User\Desktop\All\Projects\solo-hackathon-2\src\components\AddMoto\assets\AddMoto.css);
+@import url(c:\Users\User\Desktop\All\Projects\solo-hackathon-2\src\components\Auth\assets\Login.css);
+@import url(c:\Users\User\Desktop\All\Projects\solo-hackathon-2\src\components\Auth\assets\SignUp.css);
+@import url(c:\Users\User\Desktop\All\Projects\solo-hackathon-2\src\components\CarouselSlide\assets\CarouselSlide.css);
+@import url(c:\Users\User\Desktop\All\Projects\solo-hackathon-2\src\components\Cart\assets\Cart.css);
+@import url(c:\Users\User\Desktop\All\Projects\solo-hackathon-2\src\components\EditMoto\assets\EditMoto.css);
+@import url(c:\Users\User\Desktop\All\Projects\solo-hackathon-2\src\components\Footer\assets\Footer.css);
+@import url(c:\Users\User\Desktop\All\Projects\solo-hackathon-2\src\components\Information\assets\AboutUs.css);
+@import url(c:\Users\User\Desktop\All\Projects\solo-hackathon-2\src\components\Information\assets\Contacts.css);
+@import url(c:\Users\User\Desktop\All\Projects\solo-hackathon-2\src\components\Library\assets\Library.css);
+@import url(c:\Users\User\Desktop\All\Projects\solo-hackathon-2\src\components\MotoCard\assets\MotoCard.css);
+@import url(c:\Users\User\Desktop\All\Projects\solo-hackathon-2\src\components\MotoComments\assets\MotoComments.css);
+@import url(c:\Users\User\Desktop\All\Projects\solo-hackathon-2\src\components\MotoDetails\assets\MotoDetails.css);
+@import url(c:\Users\User\Desktop\All\Projects\solo-hackathon-2\src\components\MotosList\assets\MotoList.css);
+@import url(c:\Users\User\Desktop\All\Projects\solo-hackathon-2\src\components\MotosListPreview\assets\MotosListPreview.css);
+@import url(c:\Users\User\Desktop\All\Projects\solo-hackathon-2\src\components\Purchase\assets\Purchase.css);
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: "Bebas Neue", cursive !important;
-  font-style: italic I !important;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
- monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 .card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #262626 !important;
+  background-color: #262626;
   margin: 10px;
   width: 230px;
   height: 230px;

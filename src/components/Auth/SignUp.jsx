@@ -13,7 +13,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 import firebase from "../../base";
-import './assets/SignUp.css'
+// import './assets/Login.css'
 
   const SignUp = () => {
 
@@ -54,109 +54,93 @@ import './assets/SignUp.css'
       }
     };
 
-    console.dir(firebase.auth().createUserWithEmailAndPassword);
-
   return (
-    <div className='container' component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs">
       <form action="" className='cont'>
-        <div>
+        <Grid container className='containers'>
           <div>
-            <Typography component="h1" variant="h5" style={{ color: "white" }}>
+            <Typography component="h1" variant="h5" color='black' style={{ color: "black" }}>
               Registration
             </Typography>
           </div>
-          <div>
+          <Grid className='grids'>
             <TextField
-              variant="outlined"
-              className='inps'
-              color=""
-              name="nickname"
-              required
-              label="Nickname"
-              InputProps={{
-                className:'inpColor'
-              }}
-              InputLabelProps={{
-                style: { color: "#fff" },
-              }}
-              onChange={(e) =>
-                setNewUser({ ...newUser, nickname: e.target.value })
-              }
-            />
-            <TextField
-              variant="outlined"
+              variant="filled"
               className='inps'
               name="email"
               required
-              label="Email Address"
+              label="Email"
               InputProps={{
-                className:'inpColor'
+                className: 'inpColor',
               }}
               InputLabelProps={{
-                style: { color: "#fff" },
+                style: { color: "black" },
               }}
-              onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
+              onChange={(e) =>
+                setNewUser({
+                  ...newUser,
+                  name: e.target.value,
+                })
+              }
             />
-            <Grid className='grids'>
-              <TextField
-                variant="outlined"
-                className='inps'
-                name="password"
-                type={typePass}
-                required
-                label="Password"
-                InputProps={{
-                  className:'inpColor'
-                }}
-                InputLabelProps={{
-                  style: { color: "#fff" },
-                }}
-                onChange={(e) =>
-                  setNewUser({ ...newUser, password: e.target.value })
-                }
-              />
-              <IconButton
-                className='visBtn'
-                onClick={() => {
-                  setVisible(!visible);
-                  handleInpType();
-                }}
-              >
-                {!visible ? <VisibilityIcon /> : <VisibilityOffIcon />}
-              </IconButton>
-            </Grid>
-          </div>
-          {exist ? (
+          </Grid>
+          <Grid className='grids'>
+            <TextField
+              variant="filled"
+              className='inps'
+              type={typePass}
+              name="password"
+              required
+              label="Password"
+              InputProps={{
+                className: 'inpColor',
+              }}
+              InputLabelProps={{
+                style: { color: "black" },
+              }}
+              onChange={(e) =>
+                setNewUser({ ...newUser, password: e.target.value })
+              }
+            />
+            <IconButton
+              className='visBtn'
+              onClick={() => {
+                setVisible(!visible);
+                handleInpType();
+              }}
+            >
+              {!visible ? <VisibilityIcon /> : <VisibilityOffIcon />}
+            </IconButton>
+          </Grid>
+          <Grid className='buttons'> 
+            {exist ? (
               <Typography className='text'>
-                Such user exists. Wanna <Link to="/login">log in</Link>?
+                No such user exists. Wanna <Link to="/signup">sign up</Link>?
               </Typography>
             ) : null}
-          <Button
-            className='btns'
-            style={{ marginRight: "25px" }}
-            variant="contained"
-            color="secondary"
-            onClick={() => {
-              history.goBack();
-            }}
-          >
-            Close
-          </Button>
-          <Button
-            className='btns'
-            variant="contained"
-            color="primary"
-            onClick={(e) => {
-              handleSignUp(e);
-              setVisible(false);
-              setInpType(false);
-            }}
-          >
-            Sign up
-          </Button>
-        </div>
+            <Button
+              className='btns'
+              style={{ marginRight: "25px" }}
+              variant="contained"
+              color="secondary"
+              onClick={() => {
+                history.goBack();
+              }}
+            >
+              Close
+            </Button>
+            <Button
+              className='btns'
+              variant="contained"
+              color="primary"
+              onClick = {(e) => {handleSignUp(e)}}
+            >
+              Sign Up
+            </Button>
+          </Grid>
+        </Grid>
       </form>
-    </div>
+    </Container>
   );
 };
 

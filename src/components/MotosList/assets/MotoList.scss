@@ -1,5 +1,7 @@
+ @import '../../../variables/Variables.scss';
 
 .containerOuter{
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -7,7 +9,6 @@
 .container{
     width: 100%;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     flex-direction: column;
   }
@@ -36,3 +37,14 @@
     opacity: 80%;
     z-index: 1;
   }
+
+.menuItem{
+  color: black !important;
+  font-family: $Font !important;
+  font-size: 30px !important;
+}
+
+.sort-button{
+  font-family: $Font !important;
+  font-style: italic !important;
+}

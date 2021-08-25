@@ -44,7 +44,7 @@ const reducer = (state = INIT_STATE, action) => {
   }
 };
 
-let MotosCount = 10;
+let MotosCount = 6;
 
 const MotoContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);

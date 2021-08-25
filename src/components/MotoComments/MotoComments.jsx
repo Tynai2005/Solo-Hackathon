@@ -5,90 +5,11 @@ import { useContext } from "react";
 import { useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useMotos } from "../../contexts/MotoContext";
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import SaveIcon from '@material-ui/icons/Save';
 import './assets/MotoComments.css'
-
-// const useStyles = makeStyles(() => ({
-//   commentsInnerContainer: {
-//     maxWidth: "1000px",
-//     minHeight: "500px",
-//   },
-
-//   inps: {
-//     margin: "10px 0",
-//     borderBottom: "1px white solid",
-//   },
-//   comments: {
-//     width: "100%",
-//     display: "flex",
-//     flexDirection: "column",
-//     alignItems: "center",
-//     height: "100%",
-//   },
-//   inputDiv: {
-//     display: "flex",
-//     justifyContent: "space-evenly",
-//     marginBottom: 0,
-//     flexDirection: "column",
-//     width: "100%",
-//   },
-//   inpColor: {
-//     color: "white",
-//   },
-//   secondaryText: {
-//     color: "grey",
-//     lineHeight: "20px",
-//     fontSize: "14px",
-//   },
-//   commentDelete: {
-//     border: "0",
-//     borderRadius: "5px",
-//     backgroundColor: "red",
-//     color: "white",
-//   },
-//   commentEdit: {
-//     backgroundColor: "inherit",
-//     color: "white",
-//     border: "1px white solid",
-//     borderRadius: "5px",
-//     marginLeft: "10px",
-//   },
-//   commmentSave: {
-//     backgroundColor: "inherit",
-//     color: "green",
-//     border: "1px white solid",
-//     borderRadius: "5px",
-//     marginLeft: "10px",
-//   },
-//   commentClose: {
-//     backgroundColor: "inherit",
-//     color: "red",
-//     border: "1px white solid",
-//     borderRadius: "5px",
-//   },
-//   usersComment: {
-//     color: "white",
-//     width: "100%",
-//     wordWrap: "break-word",
-//   },
-//   editInput: {
-//     marginBottom: "10px",
-//   },
-//   arrow: {
-//     color: "white",
-//     marginLeft: "10px",
-//   },
-//   inpAndArrowDiv: {
-//     display: "flex",
-//     alignItems: "center",
-//   },
-//   addComment: {
-//     backgroundColor: "inherit",
-//     backgroundColor: "green",
-//     borderRadius: "5px",
-//     marginBottom: "10px",
-//     color: "white",
-//   },
-// }));
 
 const MotoComments = () => {
   const [newComment, setNewComment] = useState("");
@@ -105,7 +26,7 @@ const MotoComments = () => {
     if (comment.trim()) {
       const createdComment = {
         authorMail: currentUser.email,
-        date: new Date().toString().slice(0, 24),
+        date: new Date().toString().slice(0, 21),
         text: comment,
         id: Date.now(),
         isChanged: null,
@@ -154,8 +75,7 @@ const MotoComments = () => {
   };
 
   return (
-    <div className='commentsOuterContainer'>
-      <div className='commentsInnerContainer'>
+      <div className='commentsContainer'>
         <div className='comments'>
           <h5 className='inpColor'>Comments:</h5>
           <div className='inputDiv'>
@@ -163,12 +83,7 @@ const MotoComments = () => {
               {isAdding ? (
                 <>
                   <TextField
-                    InputProps={{
-                      className: 'inpColor',
-                    }}
-                    InputLabelProps={{
-                      style: { color: "#fff" },
-                    }}
+                    error
                     className='inps'
                     value={addingComment}
                     onChange={(e) => {
@@ -176,7 +91,7 @@ const MotoComments = () => {
                     }}
                     id="outlined-basic"
                     label="Add Comment"
-                    variant="filled"
+                    variant="outlined"
                     onChange={(e) => setNewComment(e.target.value)}
                   />
                   <ArrowForwardRoundedIcon
@@ -188,12 +103,15 @@ const MotoComments = () => {
                   />
                 </>
               ) : (
+                <>
+               {currentUser ? 
                 <Button
-                  onClick={() => setIsAdding(true)}
-                  className='addComment'
-                >
-                  Add Comment
-                </Button>
+                onClick={() => setIsAdding(true)}
+                className='addComment'
+              >
+                Add Comment
+              </Button> : null}
+              </>
               )}
             </div>
 
@@ -201,7 +119,7 @@ const MotoComments = () => {
               ? MotoDetails?.comments?.map((comment) => {
                   return (
                     <div className='usersComment'>
-                      <h5>{comment.authorMail}</h5>
+                      <h5><img style={{width: '40px',borderRadius:'5px'}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2FtKo2b7J9sTMaHjlXmoQyYz-m9twTw8PuA&usqp=CAU" alt="" /> {comment.authorMail}</h5>
                       <div className='secondaryText'>
                         {comment.isChanged}
                       </div>
@@ -219,22 +137,19 @@ const MotoComments = () => {
                             }}
                           />
                           <br />
-                          <Button
-                            className='commentClose'
+                          <HighlightOffIcon
+                            className='editIcon'
                             onClick={() => setIsEditing(false)}
-                          >
-                            Close
-                          </Button>
-                          <Button
-                            className='commmentSave'
+
+                          />
+                          <SaveIcon 
+                            className='editIcon'
                             onClick={() => saveEditedComment(comment.id)}
-                          >
-                            Save
-                          </Button>
+                          />
                         </>
                       ) : (
                         <>
-                          <div className='usersComment'>
+                          <div className='comment'>
                             {comment.text}
                           </div>
                           {currentUser &&
@@ -242,40 +157,35 @@ const MotoComments = () => {
                           (currentUser &&
                             currentUser.email ==
                               comment.authorMail) ? (
-                            <Button
-                              className='commentDelete'
-                              onClick={() => {
+                              <DeleteIcon
+                              className='editIcon'         
+                               onClick={() => {
                                 deleteComment(comment);
                               }}
-                            >
-                              DELETE
-                            </Button>
+                              />
                           ) : null}
                           {currentUser &&
                           currentUser.email ==
                             comment.authorMail ? (
-                            <Button
-                              className='commentEdit'
+                              <EditIcon
+                              className='editIcon'
+
                               onClick={() => {
                                 setIsEditing(true);
-                                setEditingComment(comment.text);
-                                setCurId(comment.id);
+                                  setEditingComment(comment.text);
+                                  setCurId(comment.id);
                               }}
-                            >
-                              EDIT
-                            </Button>
+                            />
                           ) : null}
                         </>
                       )}
-                      <hr size="10px" color="grey" width="100%" />
                     </div>
                   );
                 })
-              : null}
+              : <h2 style={{marginLeft: '40%',lineHeight:'300px'}} >No comments yet...</h2>}
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

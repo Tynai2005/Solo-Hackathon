@@ -2,35 +2,41 @@
 
 
 .btns{
-    background-color: "#0099ff";
-    color: "white";
-    padding: "10px 20px";
+    background-color: #0099ff;
+    color: black !important;
+    padding: 10px 20px;
+    margin-left: 10px !important;
   };
   .inps{
-    margin: "10px 0";
-    border-bottom: "1px white solid";
+    margin: 10px 0;
+    color: black !important;
+    border-bottom: 1px black solid;
   };
   .inpColor{
-    color: "white";
+    color: black !important;
   };
   .cont{
-    margin: "50px";
+    margin: 50px;
   };
   .text{
-    color: "white";
-    margin: "10px 0";
+    color: black !important;
+    margin: 10px 0;
   };
   .visBtn{
-    color: "white";
-    margin-left: "-50px";
+    color: black !important;
+    margin-left: -50px !important;
   };
   .grids{
-    display: "flex";
-    align-items: "center";
+    display: flex;
+    align-items: center;
   };
   .containers{
-    display: "flex";
-    flex-direction: "column";
+    display: flex;
+    flex-direction: column;
     font-family: $Font;
     font-style: italic;
   };
+
+  .buttons{
+    margin-left: 20px !important;
+  }

@@ -4,28 +4,28 @@
       "name": "BMW R-Series",
       "description": "1978 R100/7. Not restored but runs and looks good. 34,309 miles. Includes: Luftmeister period appropriate fairing (will not be mounted on bike bike but shown in some pics) Corbin seat Super Trapp exhaust Hepco & Becker hard saddle bags Progressive front fork springs Progressive rear shocks Electronic ignition Much (not all) of the hardware has been replaced with stainless hardware Body parts and fairing professionally repainted +-10 years ago (still looks good)  Bike is very sound mechanically and looks good cosmetically.  Will need new tires at some point in near future (could be ridden on but have some small cracking).  I have had this bike for many years and love it but my wife bought me an R100RS and I am not riding both.  Want it to go to a good home where it will be used.    Buyer responsible for pick up and/or shipping costs and arrangements but I will assist with shipping (flexibility for pickup etc).",
       "image": "https://i.ebayimg.com/images/g/G5wAAOSwox9hHuTb/s-l500.jpg",
-      "price": 4000000,
+      "price": 4000,
       "type": "Standard",
       "brand": "BMW",
       "comments": [
         {
           "authorMail": "tynai.s.95@gmail.com",
-          "date": "Mon Aug 23 2021 11:34:36",
-          "text": "Admins edited comment",
-          "id": 1629696876895,
+          "date": "Wed Aug 25 2021 13:34",
+          "text": "Hello, Im tynai and Im admin",
+          "id": 1629876863735,
           "isChanged": " (changed)"
         },
         {
-          "authorMail": "atay@gmail.com",
-          "date": "Mon Aug 23 2021 11:35:09",
-          "text": "Users comment",
-          "id": 1629696909499,
+          "authorMail": "james@gmail.com",
+          "date": "Wed Aug 25 2021 19:14",
+          "text": "Im user",
+          "id": 1629897261679,
           "isChanged": null
         }
       ],
       "likes": [
-        "tynai.s.95@gmail.com",
-        "atay@gmail.com"
+        "atay@gmail.com",
+        "tynai.s.95@gmail.com"
       ],
       "wishlist": [],
       "library": [
@@ -40,7 +40,15 @@
       "price": 8995,
       "type": "Standard",
       "brand": "Harley-Davidson",
-      "comments": [],
+      "comments": [
+        {
+          "authorMail": "tynai.s.95@gmail.com",
+          "date": "Tue Aug 24 2021 13:10:55",
+          "text": "rhytujymnthrtg",
+          "id": 1629789055129,
+          "isChanged": null
+        }
+      ],
       "likes": [],
       "wishlist": [],
       "library": [],
@@ -73,9 +81,7 @@
         "tynai.s.95@gmail.com",
         "atay@gmail.com"
       ],
-      "wishlist": [
-        "tynai.s.95@gmail.com"
-      ],
+      "wishlist": [],
       "library": [],
       "id": 4
     },
@@ -86,7 +92,15 @@
       "price": 14900,
       "type": "Standard",
       "brand": "Yamaha",
-      "comments": [],
+      "comments": [
+        {
+          "authorMail": "james@gmail.com",
+          "date": "Wed Aug 25 2021 17:44",
+          "text": "wdefrgtb",
+          "id": 1629891843072,
+          "isChanged": null
+        }
+      ],
       "likes": [],
       "wishlist": [],
       "library": [
@@ -101,11 +115,28 @@
       "price": 7499,
       "type": "Standard",
       "brand": "Kawasaki",
-      "comments": [],
+      "comments": [
+        {
+          "authorMail": "tynai.s.95@gmail.com",
+          "date": "Wed Aug 25 2021 00:07:55",
+          "text": "sdfghjhgfds",
+          "id": 1629828475714,
+          "isChanged": null
+        },
+        {
+          "authorMail": "tynai.s.95@gmail.com",
+          "date": "Wed Aug 25 2021 00:08:05",
+          "text": "wdefrgthyjtgrfedws",
+          "id": 1629828485680,
+          "isChanged": null
+        }
+      ],
       "likes": [
         "tynai.s.95@gmail.com"
       ],
-      "wishlist": [],
+      "wishlist": [
+        "tynai.s.95@gmail.com"
+      ],
       "library": [],
       "id": 6
     },
@@ -118,7 +149,9 @@
       "brand": "Suzuki",
       "comments": [],
       "likes": [],
-      "wishlist": [],
+      "wishlist": [
+        "tynai.s.95@gmail.com"
+      ],
       "library": [],
       "id": 7
     },
@@ -130,7 +163,9 @@
       "type": "Cruiser",
       "brand": "Honda",
       "comments": [],
-      "likes": [],
+      "likes": [
+        "tynai.s.95@gmail.com"
+      ],
       "wishlist": [],
       "library": [],
       "id": 8
@@ -144,7 +179,9 @@
       "brand": "Kawasaki",
       "comments": [],
       "likes": [],
-      "wishlist": [],
+      "wishlist": [
+        "tynai.s.95@gmail.com"
+      ],
       "library": [],
       "id": 9
     },
@@ -155,9 +192,21 @@
       "price": 1999,
       "type": "Cruiser",
       "brand": "Suzuki",
-      "comments": [],
-      "likes": [],
-      "wishlist": [],
+      "comments": [
+        {
+          "authorMail": "tynai.s.95@gmail.com",
+          "date": "Tue Aug 24 2021 16:46:24",
+          "text": "1123123",
+          "id": 1629801984552,
+          "isChanged": null
+        }
+      ],
+      "likes": [
+        "tynai.s.95@gmail.com"
+      ],
+      "wishlist": [
+        "tynai.s.95@gmail.com"
+      ],
       "library": [],
       "id": 10
     }

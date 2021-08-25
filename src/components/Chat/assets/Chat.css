@@ -1,0 +1,77 @@
+
+
+.message-cont{
+  box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.68);
+  word-wrap: break-word;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+  width: 200px;
+}
+
+.triangle-left{
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid red;
+}
+
+.triangle-left{
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid red;
+}
+
+.cur-user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  width: 100%;
+  font-family: "Arial";
+  font-style: italic;
+  font-weight: 700;
+}
+.user{
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  font-family: "Arial";
+  font-style: italic;
+  font-weight: 700;
+}
+
+.ava{
+  width: 30px;
+  border-radius: 50%;
+}
+
+.info{
+  margin-left: 5px;
+}
+
+.date{
+  color: grey;
+  font-size: 11px;
+}
+
+.title{
+  font-family: 'Bebas neue';
+  font-style: italic;
+  font-size: 50px;
+}
+
+.date-email{
+  display: flex;
+  align-items: center;
+  font-family: "Arial";
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 14px;
+}
+/*# sourceMappingURL=Chat.css.map */
