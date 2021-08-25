@@ -36,8 +36,8 @@ const Footer = () => {
             </IconButton>
           </div>
         </div>
-        <Typography className='text'>
-          ©COPYRIGHT PROJECTOR COMPANY
+        <Typography  style={{color: 'white',width: '100%',textAlign: 'center',padding: '10px 0',fontFamily: "Bebas Neue, cursive",fontStyle: 'italic',fontSize:'20px'}}>
+          ©COPYRIGHT DE MOTO COMPANY
         </Typography>
       </Container>
     </div>

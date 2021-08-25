@@ -5,11 +5,11 @@
 }
 
 .icons {
-  color: black;
+  color: white !important;
 }
 
 .text {
-  color: black;
+  color: white !important;
   width: 100%;
   text-align: center;
   padding: 10px 0;
