@@ -53,6 +53,12 @@
   transition: .5s;
 }
 
+@media all and (max-width: 475px){
+  .Moto-card-img{
+    width: 230px !important
+  }
+}
+
 .Moto-card-img {
   width: 100%;
   height: 100%;

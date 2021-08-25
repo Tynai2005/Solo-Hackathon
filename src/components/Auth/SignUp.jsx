@@ -13,7 +13,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 import firebase from "../../base";
-// import './assets/Login.css'
+import './assets/Login.css'
 
   const SignUp = () => {
 

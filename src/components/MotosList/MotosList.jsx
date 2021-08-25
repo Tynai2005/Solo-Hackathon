@@ -294,7 +294,7 @@ const MotosList = () => {
           </Link> 
         ) : null} 
       </Grid>
-      <Grid className='grids'>
+      <Grid className='gridss'>
         {MotosData.length > 0 ? (
           MotosData.map((Moto) => {
             return <MotoCard Moto={Moto} />;

@@ -11,16 +11,9 @@
         {
           "authorMail": "tynai.s.95@gmail.com",
           "date": "Wed Aug 25 2021 13:34",
-          "text": "Hello, Im tynai and Im admin",
+          "text": "Hello, Im atai and Im admin",
           "id": 1629876863735,
           "isChanged": " (changed)"
-        },
-        {
-          "authorMail": "james@gmail.com",
-          "date": "Wed Aug 25 2021 19:14",
-          "text": "Im user",
-          "id": 1629897261679,
-          "isChanged": null
         }
       ],
       "likes": [
@@ -50,7 +43,9 @@
         }
       ],
       "likes": [],
-      "wishlist": [],
+      "wishlist": [
+        "james@gmail.com"
+      ],
       "library": [],
       "id": 2
     },
@@ -150,9 +145,12 @@
       "comments": [],
       "likes": [],
       "wishlist": [
-        "tynai.s.95@gmail.com"
+        "tynai.s.95@gmail.com",
+        "james@gmail.com"
       ],
-      "library": [],
+      "library": [
+        "james@gmail.com"
+      ],
       "id": 7
     },
     {
