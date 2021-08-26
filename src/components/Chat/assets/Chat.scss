@@ -1,4 +1,12 @@
+@import '../../../variables/Variables.scss';
+
 .cur-user{
     margin-left: 100px;
     color: red !important;
+}
+
+.title{
+    font-family: $Font;
+    font-style: italic;
+    font-size: 50px;
 }

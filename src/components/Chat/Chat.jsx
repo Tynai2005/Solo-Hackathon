@@ -21,7 +21,7 @@ const Chat = () => {
             firebase.firestore().collection('messages').add({
                 email: currentUser.email,
                 text: value,
-                createdAt: new Date().toString().slice(0,21),
+                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
             })
             setValue('')
         }else{
@@ -44,7 +44,6 @@ const Chat = () => {
                                         </div>
                                         <div className='info'>
                                             <div className='email' >{m.email}</div>
-                                            <div className='date'>{m.createdAt.toString()}</div>
                                         </div>
                                     </div>
                                     <div className='comment'>{m.text}</div>

@@ -30,8 +30,7 @@ const MotoCard = ({ Moto }) => {
         <div>
           {Moto.name}
         </div>
-        <div>{Moto.brand}</div>
-        <div>
+        <div className='card-price'>
           {Moto.price == 0 ? "Free to play" : Moto.price + "$"}
         </div>
         {currentUser && isAdmin ? (

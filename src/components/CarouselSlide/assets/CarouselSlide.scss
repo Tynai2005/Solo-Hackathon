@@ -1,5 +1,5 @@
 .carousel-photo{
-    width: 100% ;
+    width: 100vw ;
     height: 500px; 
     object-fit: cover;
 }
@@ -18,11 +18,4 @@
     padding: 10px 30px;
     font-family: $Font;
     font-style: italic;
-  }
-
-  .about-us{
-    color: $FontColor;
-    font-family: $Font !important;
-    text-align: center;
-    font-style: italic !important;
   }

@@ -26,6 +26,7 @@
     border-radius: 5px;
     margin: 30px 12px ;
     color: $FontColor;
+    box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.68);
 
   }
   .Moto-card-info {
@@ -38,7 +39,7 @@
   .Moto-img-div {
     height: 70%;
   }
-  .Moto-card-img:hover {
+  .Moto-card:hover {
     transform: scale(1.05);
     transition: .5s;
   }
@@ -48,5 +49,9 @@
     height: 100%;
     border-radius: 5px;
     object-fit: cover;
+  }
+
+  .card-price{
+    font-family: 'Arial';
   }
   

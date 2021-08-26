@@ -26,9 +26,6 @@
 .grids {
   margin: 20px 0;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .imgs {
@@ -61,7 +58,8 @@
 .mainImg {
   width: 100%;
   height: 600px;
-    -o-object-fit: cover;
+  background-image: url(https://besthqwallpapers.com/img/original/134454/dark-walnut-board-4k-dark-wooden-texture-macro-dark-walnut.jpg);
+  -o-object-fit: cover;
      object-fit: cover;
   display: -webkit-box;
   display: -ms-flexbox;

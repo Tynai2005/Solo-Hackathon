@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,SAAS,CAAA;EACL,YAAY,EAAE,CAAC;CAClB",
+    "mappings": "ACAA,OAAO,CAAC,uEAAI;ADEZ,AAAA,SAAS,CAAA;EACL,WAAW,EAAE,KAAK;EAClB,KAAK,EAAE,cAAc;CACxB;;AAED,AAAA,MAAM,CAAA;EACF,WAAW,ECNR,YAAY,EAAE,OAAO;EDOxB,UAAU,EAAE,MAAM;EAClB,SAAS,EAAE,IAAI;CAClB",
     "sources": [
-        "Chat.scss"
+        "Chat.scss",
+        "../../../variables/Variables.scss"
     ],
     "names": [],
     "file": "Chat.css"

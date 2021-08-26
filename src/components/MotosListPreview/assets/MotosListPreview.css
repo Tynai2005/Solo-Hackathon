@@ -58,23 +58,13 @@
 
 .about-us {
   color: black;
-  font-family: 'Bebas neue' !important;
+  font-family: "Bebas Neue", cursive !important;
   text-align: center;
-  font-size: 40px;
-  font-style: italic;
-  line-height: 50px;
-  margin: 40px;
+  font-style: italic !important;
 }
 
-.sort-button{
-  font-family: 'Bebas neue' !important;
+.sort-button {
+  font-family: "Bebas Neue", cursive !important;
   font-style: italic !important;
-  color: white;
-  background-color: #ce1e1e;
-  font-size: 20px;
-  padding: 5px; 
-  width: 110px;
-  border: none;
-  border-radius: 5px;
 }
 /*# sourceMappingURL=MotosListPreview.css.map */

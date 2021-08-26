@@ -1,4 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 .containerOuter {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,9 +14,6 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -webkit-box-orient: vertical;
@@ -23,7 +22,7 @@
           flex-direction: column;
 }
 
-.gridss {
+.grids {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -40,24 +39,35 @@
 
 .addMoto {
   text-decoration: none;
-  color: 'Bebas neue';
+  color: black;
 }
 
 .sorryH1 {
-  color: 'Bebas neue';
+  color: black;
   height: 80vh;
 }
 
 .addBtn {
   background-color: green;
-  color: 'Bebas neue';
+  color: black;
 }
 
 .menuMobile {
   left: 15;
-  background-color: 'Bebas neue';
+  background-color: black;
   color: black;
   opacity: 80%;
   z-index: 1;
+}
+
+.menuItem {
+  color: black !important;
+  font-family: "Bebas Neue", cursive !important;
+  font-size: 30px !important;
+}
+
+.sort-button {
+  font-family: "Bebas Neue", cursive !important;
+  font-style: italic !important;
 }
 /*# sourceMappingURL=MotoList.css.map */

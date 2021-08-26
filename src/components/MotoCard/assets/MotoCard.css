@@ -32,6 +32,8 @@
   border-radius: 5px;
   margin: 30px 12px;
   color: black;
+  -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.68);
+          box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.68);
 }
 
 .Moto-card-info {
@@ -46,17 +48,11 @@
   height: 70%;
 }
 
-.Moto-card-img:hover {
+.Moto-card:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   -webkit-transition: .5s;
   transition: .5s;
-}
-
-@media all and (max-width: 475px){
-  .Moto-card-img{
-    width: 230px !important
-  }
 }
 
 .Moto-card-img {
@@ -65,5 +61,9 @@
   border-radius: 5px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.card-price {
+  font-family: 'Arial';
 }
 /*# sourceMappingURL=MotoCard.css.map */

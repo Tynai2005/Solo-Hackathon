@@ -71,11 +71,11 @@
 }
 
 .imgDet {
-  border-radius: 10px !important;
-  height: 80vh !important;
-  width: 100% !important;
-  -o-object-fit: cover !important;
-     object-fit: cover !important;
+  border-radius: 10px;
+  height: 80%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .video {
