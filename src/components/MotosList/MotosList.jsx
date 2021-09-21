@@ -20,16 +20,23 @@ import EditMoto from "../EditMoto/EditMoto";
 import { getCurrentPage } from "../../helper/functions";
 import { useState } from "react";
 import './assets/MotoList.css'
+import { ACTIONS } from "../../helper/consts";
+import firebase from 'firebase/app';
+
 
 const MotosList = () => {
   const { currentUser,isAdmin } = useContext(AuthContext);
-  const { getMotosData, MotosData, modal, pages, history } = useMotos();
+  const { getMotosData, MotosData, modal, pages, history, dispatch,searchTxt } = useMotos();
   const [page, setPage] = useState(getCurrentPage());
-  const [sortMenu, setSortMenu] = useState(false);
-  const [type, setType] = useState(getType());
-  const [brand, setBrand] = useState(getBrand());
+  const [filterMenu, setFilterMenu] = useState(false);
+  const [typee, setType] = useState(getType());
+  const [brandd, setBrand] = useState(getBrand());
   const [minPrice, setMinPrice] = useState(getMinPrice());
   const [maxPrice, setMaxPrice] = useState(getMaxPrice());
+
+  const [type,setT]  = useState('')
+  const [brand,setB] = useState('')
+
   
   useEffect(() => {
     getMotosData();
@@ -43,7 +50,7 @@ const MotosList = () => {
 
   function getBrand() {
     const search = new URLSearchParams(history.location.search);
-    return search.get("type");
+    return search.get("brand");
   }
 
   function getMinPrice() {
@@ -56,40 +63,95 @@ const MotosList = () => {
     return search.get("price_lte");
   }
 
-  const changetype = (e) => {
+  const changetype = async (e) => {
+
+    const search = new URLSearchParams(history.location.search);
+
     if (e.target.value == "all") {
-      const search = new URLSearchParams(history.location.search);
+      setT('')
+      
       search.delete("type");
       search.set("_page", "1");
       history.push(`${history.location.pathname}?${search.toString()}}`);
-      getMotosData();
       setType(e.target.value);
+      if (brand){
+        const data = await firebase.firestore().collection('motos').where('brand','==',brand).get()
+        const data2 = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+        dispatch({
+          type: ACTIONS.GET_MOTOS_DATA,
+          payload: data2,
+        });
+        return
+      }
+      getMotosData()
       return;
     }
-    const search = new URLSearchParams(history.location.search);
+
     search.set("type", e.target.value);
     search.set("_page", "1");
     history.push(`${history.location.pathname}?${search.toString()}`);
-    getMotosData();
     setType(e.target.value);
+    setT(e.target.value)
+    if (brand){
+      const data = await firebase.firestore().collection('motos').where('type','==',e.target.value).where('brand','==',brand).get()
+      const data2 = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+      dispatch({
+        type: ACTIONS.GET_MOTOS_DATA,
+        payload: data2,
+      });
+      return
+    }
+    const data = await firebase.firestore().collection('motos').where('type','==',e.target.value).get()
+    const data2 = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    dispatch({
+      type: ACTIONS.GET_MOTOS_DATA,
+      payload: data2,
+    });
   };
 
-  const changebrand = (e) => {
+  const changebrand = async (e) => {
+
+    const search = new URLSearchParams(history.location.search);
+
     if (e.target.value == "all") {
-      const search = new URLSearchParams(history.location.search);
+      setB('')
       search.delete("brand");
       search.set("_page", "1");
       history.push(`${history.location.pathname}?${search.toString()}}`);
-      getMotosData();
       setBrand(e.target.value);
+      if (type){
+        const data = await firebase.firestore().collection('motos').where('type','==',type).get()
+        const data2 = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+        dispatch({
+          type: ACTIONS.GET_MOTOS_DATA,
+          payload: data2,
+        });
+        return
+      }
+      getMotosData()
       return;
     }
-    const search = new URLSearchParams(history.location.search);
+
     search.set("brand", e.target.value);
     search.set("_page", "1");
     history.push(`${history.location.pathname}?${search.toString()}`);
-    getMotosData();
     setBrand(e.target.value);
+    setB(e.target.value)
+    if (type){
+      const data = await firebase.firestore().collection('motos').where('brand','==',e.target.value).where('type','==',type).get()
+      const data2 = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+      dispatch({
+        type: ACTIONS.GET_MOTOS_DATA,
+        payload: data2,
+      });
+      return
+    }
+    const data = await firebase.firestore().collection('motos').where('brand','==', e.target.value).get()
+    const data2 = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    dispatch({
+      type: ACTIONS.GET_MOTOS_DATA,
+      payload: data2,
+    });
   };
 
   const changeMinPrice = (value) => {
@@ -140,18 +202,18 @@ const MotosList = () => {
   }
 
   return (
-    <div className="containerOuter">
-      <Container className='container'>
+    <div className="containerOuter-list">
+      <Container className='container-list'>
       {modal ? <EditMoto /> : null}
       <Grid
-        className='grids'
+        className='grids-list '
         style={{ justifyContent: "space-between", margin: "20px 0" }}
       >
-        <div>
-          <button className='sort-button' onClick={() => setSortMenu(!sortMenu)}>Sort {'&'} Filter</button>
-          {sortMenu ? (
-            <div className='menuMobile'>
-              <RadioGroup value={type} style={{display:'inline'}} onChange={changetype}>
+        <div className='sort-menu-list'>
+          <button className='sort-button' onClick={() => setFilterMenu(!filterMenu)}>Filter</button>
+          {filterMenu ? (
+            <div className='menuMobile-list'>
+              <RadioGroup value={typee} style={{display:'inline'}} onChange={changetype}>
                 <h5>By type:</h5>
                 <FormControlLabel
                   className='menuItem'
@@ -215,7 +277,7 @@ const MotosList = () => {
                 />
               </RadioGroup>
               <div>
-              <RadioGroup value={brand} style={{display:'inline'}} onChange={changebrand}>
+              <RadioGroup value={brandd} style={{display:'inline'}} onChange={changebrand}>
                 <h5>By brand:</h5>
                 <FormControlLabel
                   value="Honda"
@@ -259,7 +321,7 @@ const MotosList = () => {
                 />
               </RadioGroup>
               </div>
-              <h5>By Price:</h5>
+              {/* <h5>By Price:</h5>
               <div className='mobilePriceFilter'>
                 <TextField
                   className='priceInputs'
@@ -282,11 +344,11 @@ const MotosList = () => {
                 <Button variant="outlined" onClick={resetPrice}>
                   Reset Price Filter
                 </Button>
-              </div>
+              </div> */}
             </div>
           ) : null}
         </div>
-        {currentUser && isAdmin ? (
+        {isAdmin ? (
           <Link to="/addMoto" className='addMoto'>
             <Button variant="contained" className='addBtn'>
               Add Moto
@@ -294,10 +356,22 @@ const MotosList = () => {
           </Link> 
         ) : null} 
       </Grid>
-      <Grid className='gridss'>
-        {MotosData.length > 0 ? (
+      <Grid className='grids-list'>
+        {MotosData?.length > 0 ? (
           MotosData.map((Moto) => {
-            return <MotoCard Moto={Moto} />;
+            if(!Moto){ return <MotoCard Moto={Moto} />}
+            else if (
+              Moto.name.toLowerCase().includes(searchTxt.toLowerCase())
+              ||
+              Moto.description.toLowerCase().includes(searchTxt.toLowerCase())
+              ||
+              Moto.type.toLowerCase().includes(searchTxt.toLowerCase())
+              ||
+              Moto.brand.toLowerCase().includes(searchTxt.toLowerCase())
+              ){ return <MotoCard Moto={Moto} />}
+            else{
+              return <h2 className='sorryH1'>Loading...</h2>
+            }
           })
         ) : (
           <h2 className='sorryH1'>Sorry, there are no such Motos...</h2>

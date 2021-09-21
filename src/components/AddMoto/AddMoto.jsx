@@ -24,7 +24,7 @@ const AddMoto = () => {
   });
   return (
     <Container
-    className='container'
+    className='containerAddMoto'
     >
       <div className='text'>
         <h1>Moto creator</h1>
@@ -173,7 +173,7 @@ const AddMoto = () => {
           <div>
             <input
               type="radio"
-              name="typeRadio"
+              name="brandRadio"
               id=""
               onChange={() => {
                 setMotoInfo({ ...motoInfo, brand: "Honda" });
@@ -184,7 +184,7 @@ const AddMoto = () => {
           <div>
             <input
               type="radio"
-              name="typeRadio"
+              name="brandRadio"
               id=""
               onChange={() => {
                 setMotoInfo({ ...motoInfo, brand: "BMW" });
@@ -195,7 +195,7 @@ const AddMoto = () => {
           <div>
             <input
               type="radio"
-              name="typeRadio"
+              name="brandRadio"
               id=""
               onChange={() => {
                 setMotoInfo({ ...motoInfo, brand: "Harley-Davidson" });
@@ -206,7 +206,7 @@ const AddMoto = () => {
           <div>
             <input
               type="radio"
-              name="typeRadio"
+              name="brandRadio"
               id=""
               onChange={() => {
                 setMotoInfo({ ...motoInfo, brand: "Kawasaki" });
@@ -217,7 +217,7 @@ const AddMoto = () => {
           <div>
             <input
               type="radio"
-              name="typeRadio"
+              name="brandRadio"
               id=""
               onChange={() => {
                 setMotoInfo({ ...motoInfo, brand: "Yamaha" });
@@ -228,7 +228,7 @@ const AddMoto = () => {
           <div>
             <input
               type="radio"
-              name="typeRadio"
+              name="brandRadio"
               id=""
               onChange={() => {
                 setMotoInfo({ ...motoInfo, brand: "Triumph" });
@@ -239,7 +239,7 @@ const AddMoto = () => {
           <div>
             <input
               type="radio"
-              name="typeRadio"
+              name="brandRadio"
               id=""
               onChange={() => {
                 setMotoInfo({ ...motoInfo, brand: "Suzuki" });

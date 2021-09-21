@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-.containerOuter {
+.containerOuter-preview {
+  margin: 40px 0;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9,18 +10,21 @@
           justify-content: center;
 }
 
-.container {
+.container-list-preview {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 30px;
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
 }
 
 .review {
@@ -38,29 +42,20 @@
           justify-content: center;
 }
 
-.seeMore {
+.see-more {
+  width: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-.see-more {
   margin-top: 50px !important;
   background-color: #ce1e1e !important;
   font-family: "Bebas Neue", cursive !important;
   color: white !important;
   font-style: italic !important;
   font-size: 20px !important;
-}
-
-.about-us {
-  color: black;
-  font-family: "Bebas Neue", cursive !important;
-  text-align: center;
-  font-style: italic !important;
 }
 
 .sort-button {

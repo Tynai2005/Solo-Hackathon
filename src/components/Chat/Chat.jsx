@@ -15,7 +15,7 @@ const Chat = () => {
     const [messages] = useCollectionData(firebase.firestore().collection('messages').orderBy('createdAt'))
 
     const [value,setValue] = useState('')
-
+ 
     const sendMessage = () => {
         if (value.trim().length != 0){
             firebase.firestore().collection('messages').add({
@@ -33,7 +33,7 @@ const Chat = () => {
         <Container>
             <Grid container style={{width: '100%',marginTop: '20px',display:'flex',flexDirection:'column',alignItems:'center'}} justify='center'>
             <h2 className='title'>De Moto Chat</h2>
-                <div style={{width: '80%',height:'auto',minHeight: '400px',border: '4px solid #ce1e1e',borderRadius:'10px'}}>
+                <div className='chat-container'>
                     {messages?.length > 0 ? messages.map((m) => (
                         <div>
                             <Grid container className={m.email == currentUser.email ? 'cur-user' : 'user'}>
@@ -43,7 +43,7 @@ const Chat = () => {
                                             <img className='ava' src="https://icon-library.com/images/person-icon-red/person-icon-red-14.jpg" alt="" />
                                         </div>
                                         <div className='info'>
-                                            <div className='email' >{m.email}</div>
+                                            <div className='email'>{m.email}</div>
                                         </div>
                                     </div>
                                     <div className='comment'>{m.text}</div>
@@ -52,9 +52,9 @@ const Chat = () => {
                         </div>
                     )): null}
                 </div>
-                <Grid container direction='column' alignItems='flex-end' style={{width: '80%',marginTop: '10px'}}>
-                    <TextField error value={value} label='Write comment here' onChange={(e) => setValue(e.target.value)} variant='outlined'/>
-                    <Button style={{backgroundColor:'green',margin:'10px 0'}} onClick={sendMessage}>Send</Button>
+                <Grid container direction='column' alignItems='center' style={{width: '80%',marginTop: '10px'}}>
+                    <TextField error value={value} label='Write message here' onChange={(e) => setValue(e.target.value)} variant='outlined'/>
+                    <Button className='sendMessageToChat' onClick={sendMessage}>Send</Button>
                 </Grid>
             </Grid>
         </Container>

@@ -145,7 +145,7 @@ export default function PrimarySearchAppBar() {
   const { currentUser } = useContext(AuthContext);
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
-  const { getMotosData, history, isAllMotos, toHome, toMotosList } = useMotos();
+  const { getMotosData, history, isAllMotos, toHome, toMotosList,setSearchTxt,searchTxt } = useMotos();
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -166,12 +166,12 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const searching = (e) => {
+  const searching = async (e) => {
     history.push("/Motoslist");
     const search = new URLSearchParams(history.location.search);
     search.set("q", e.target.value);
     history.push(`${history.location.pathname}?${search.toString()}`);
-    getMotosData();
+    await setSearchTxt(e.target.value)
   };
 
   const menuId = "primary-search-account-menu";
@@ -200,16 +200,17 @@ export default function PrimarySearchAppBar() {
             </Button>
           )}
         </MenuItem>
-        <MenuItem>
           {currentUser ? (
+        <MenuItem>
             <Button
               className={classes.menuBtn}
               onClick={() => history.push("/library")}
             >
               My Garage
             </Button>
+          </MenuItem>
           ) : null}
-        </MenuItem>
+
         <MenuItem onClick={() => history.push("/cart")}>
           <Button  className={classes.menuBtn}>Cart</Button>
         </MenuItem>

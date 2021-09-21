@@ -18,9 +18,8 @@ const MotosListPreview = () => {
   let counter = 0;
 
   return (
-    <div className="containerOuter">
-      <Container className='container'>
-      <br />
+    <div className="containerOuter-preview">
+      <Container className='container-list-preview'>
       <Grid className='seeMore'>
         <h2 style={{ color: "black"}}>
           All Motos
@@ -45,7 +44,7 @@ const MotosListPreview = () => {
           See More Motos...
         </Button>
         <br />
-        <h1 className='about-us'>Join our free <Link to="/chat" >chat</Link></h1>
+        <h1 className='linkToChat'>Join our free <Link to="/chat" >chat</Link></h1>
     </Container>
     </div>
   );

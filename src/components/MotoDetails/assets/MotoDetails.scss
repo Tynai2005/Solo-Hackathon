@@ -6,7 +6,7 @@
     width: 100%;
   }
 
-.details{
+.moto-details{
   width: 80%;
   font-family: $Font;
   font-style: italic;
@@ -59,7 +59,7 @@
   }
 .imgDet{
     border-radius: 10px;
-    height: 80%;
+    height: 300px;
     width: 100%;
     object-fit: cover;
   }
@@ -68,4 +68,45 @@
   }
 .buyBtns{
     margin-top: 10px;
+}
+
+.buy-button-details{
+  font-family: $Font !important;
+  background-color: #ce1e1e !important;
+  color: white !important;
+  font-style: italic !important;
+}
+
+.cart-button-details{
+  font-family: $Font !important;
+  color: #ce1e1e !important;
+  font-style: italic !important;
+}
+
+@media all and (min-width: 400px){
+  .imgDet{
+    height: 350px;
+  }
+}
+@media all and (min-width: 500px){
+  .imgDet{
+    height: 400px;
+  }
+}
+
+@media all and (min-width: 800px){
+  .imgDet{
+    height: 600px;
+  }
+}
+@media all and (min-width: 900px){
+  .imgDet{
+    height: 700px;
+  }
+}
+
+@media all and (min-width: 1150px){
+  .imgDet{
+    height: 900px;
+  }
 }

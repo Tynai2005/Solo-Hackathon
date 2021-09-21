@@ -10,14 +10,12 @@ import './assets/Contacts.css'
 const Contacts = () => {
 
   return (
-    <div className='container'>
-      <Card className='card'>
-        <CardContent>
-          <div className='cards'>
-            <Typography variant="h5" component="h5">
-              <div className='text'>Tynai: +996(703)-81-15-73</div> 
-              <br />
-              Youtube:{" "}
+    <div className='contactsContainer'>
+        <div className='contactCard'>
+            <div>
+            <div className='text'>Tynai: <br /> +996(703)-81-15-73</div> 
+              <div className='text'>
+              Youtube:
               <a
                 target="_blank"
                 href="https://www.youtube.com/channel/UCzUYaZdrDfefH1vmzCMYfbA"
@@ -25,11 +23,9 @@ const Contacts = () => {
               >
                 Тынай Сманов
               </a>
-              <br />
-            </Typography>
+              </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
     </div>
   );
 };

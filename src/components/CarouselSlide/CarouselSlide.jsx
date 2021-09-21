@@ -13,8 +13,8 @@ const CarouselSlide = () => {
   }, []);
 
   return (
-    <Container >
-      <h2 className='about-us' >Welcome to De Moto. You can buy motorcycles of any brand and type from <br /> us. We have been delighting motorcycle amateurs, professional <br /> motorcycle riders, extreme sportsmen since 1985.</h2>
+    <Container className='container-slider'>
+      <h2 className='about-us-slider' >Welcome to De Moto. You can buy motorcycles of any brand and type from <br /> us. We have been delighting motorcycle amateurs, professional <br /> motorcycle riders, extreme sportsmen since 1985.</h2>
       <Carousel className='carousel'>
         <Carousel.Item className='slides'>
           <img
@@ -22,9 +22,9 @@ const CarouselSlide = () => {
             src={MotosData[4]?.image}
             alt="Second slide"
           />
-          <Carousel.Caption style={{ display: "flex" }}>
+          <Carousel.Caption style={{ display: "flex"}}>
             <Button className='btns' onClick={() => changeId(MotosData[4].id)}>
-              See more
+              View details
             </Button>
           </Carousel.Caption>
         </Carousel.Item>
@@ -36,7 +36,7 @@ const CarouselSlide = () => {
           />
           <Carousel.Caption style={{ display: "flex" }}>
             <Button className='btns' onClick={() => changeId(MotosData[2].id)}>
-              See more
+              View details
             </Button>
           </Carousel.Caption>
         </Carousel.Item>
@@ -48,7 +48,7 @@ const CarouselSlide = () => {
           />
           <Carousel.Caption style={{ display: "flex" }}>
             <Button className='btns' onClick={() => changeId(MotosData[3].id)}>
-              See more
+              View details
             </Button>
           </Carousel.Caption>
         </Carousel.Item>

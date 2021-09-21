@@ -116,6 +116,7 @@ const useStyles = makeStyles((theme) => ({
   p:{
     color: 'black',
   }
+
 }));
 
 export default function Header() {
@@ -183,13 +184,6 @@ export default function Header() {
       onClose={handleMobileMenuClose}
       className={classes.p}
     >
-      <MenuItem>
-      <Link to="/" onClick={toMotosList} className={classes.logo}>
-              <Typography className={classes.title} variant="h4" noWrap>
-                <img src={logo} alt="logo" className={classes.logo} />
-              </Typography>
-            </Link>
-      </MenuItem>
       <MenuItem onClick={() => history.push("/contacts")}>
         <IconButton aria-label="show 4 new mails" color="inherit">
           <ContactSupportOutlinedIcon />
@@ -222,10 +216,8 @@ export default function Header() {
       <div className={classes.grow}>
         <AppBar position="sticky" className={classes.navbar}>
           <Toolbar className={classes.navbar}>
-            <Link to="/" onClick={toMotosList} className={classes.logo}>
-              <Typography className={classes.title} variant="h4" noWrap>
+            <Link to="/"  onClick={toMotosList} className={classes.logo}>
                 <img src={logo} alt="logo" className={classes.logo} />
-              </Typography>
             </Link>
 
             <div className={classes.grow} />

@@ -1,42 +1,63 @@
 @import '../../../variables/Variables.scss';
 
+.cont-auth{
+  display: flex;
+  justify-content: center;
+}
 
-.btns{
-    background-color: #0099ff;
-    color: black !important;
-    padding: 10px 20px;
-    margin-left: 10px !important;
-  };
-  .inps{
-    margin: 10px 0;
-    color: black !important;
-    border-bottom: 1px black solid;
-  };
-  .inpColor{
-    color: black !important;
-  };
-  .cont{
-    margin: 50px;
-  };
-  .text{
-    color: black !important;
-    margin: 10px 0;
-  };
-  .visBtn{
-    color: black !important;
-    margin-left: -50px !important;
-  };
-  .grids{
-    display: flex;
-    align-items: center;
-  };
-  .containers{
-    display: flex;
-    flex-direction: column;
-    font-family: $Font;
-    font-style: italic;
-  };
+.containers-auth {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between;
+  align-items: center !important;
+  height: 70% !important;
+  width: 70% !important;
+  font-family: 'Bebas Neue', cursive !important;
+  font-style: italic !important;
+}
 
-  .buttons{
-    margin-left: 20px !important;
-  }
+.btns-auth {
+  background-color: #0099ff;
+  color: black !important;
+  padding: 10px 20px;
+}
+
+.inps-auth {
+  margin: 10px 0;
+  border-bottom: 1px black solid;
+  color: black !important;
+}
+
+.inpColor-auth {
+  color: black !important;
+}
+
+.cont-auth {
+  margin: 30px 0 !important;
+  background-color: white !important;
+  box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.68);
+  margin: 0px;
+  border-radius: 10px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+}
+
+.text-auth {
+  color: black !important;
+  margin: 10px 0;
+}
+
+.visBtn-auth {
+  color: black !important;
+  margin-left: -50px !important;
+  margin-top: 12px !important;
+}
+
+.grids-auth {
+  display: flex;
+  align-items: center;
+}
+
+
+/*# sourceMappingURL=Login.css.map */

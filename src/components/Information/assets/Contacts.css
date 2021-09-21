@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-.container {
+.contactsContainer {
   margin: 40px;
   min-height: 80vh;
   display: -webkit-box;
@@ -17,6 +17,7 @@
   font-family: "Bebas Neue", cursive;
   font-style: italic;
   color: black;
+  font-size: 25px;
 }
 
 .bullet {
@@ -39,16 +40,8 @@
   height: 200px;
 }
 
-.card {
-  width: 400px;
-  max-height: 400px;
-  margin: 30px;
-  font-family: "Bebas Neue", cursive;
-  font-style: italic;
-}
-
-.cards {
-  width: 100%;
+.contactCard {
+  width: 500px;
   height: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -61,6 +54,8 @@
           align-items: center;
   font-family: "Bebas Neue", cursive;
   font-style: italic;
+  -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.68);
+          box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.68);
 }
 
 .hrefs {

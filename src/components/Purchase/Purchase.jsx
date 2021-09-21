@@ -7,16 +7,19 @@ import {
 } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import { useMotos } from "../../contexts/MotoContext";
 import { MOTOS_API } from "../../helper/consts";
 import './assets/Purchase.css'
+import firebase from 'firebase/app';
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Purchase = () => {
   const [open, setOpen] = useState(false);
-  const { toLibrary, history,deleteCartMoto,currentUser } = useMotos();
+  const { toLibrary, history,deleteCartMoto,MotoDetails,getMotoDetails } = useMotos();
+  const {currentUser} = useContext(AuthContext)
   const [cvc, setCvc] = useState("");
   const [expiry, setExpiry] = useState("");
   const [focus, setFocus] = useState("");
@@ -51,21 +54,27 @@ const Purchase = () => {
   };
 
   const clearCart = async () => {
-    const { data } = await axios(MOTOS_API);
+    const data1 = await firebase.firestore().collection('motos').get()
+    const data = data1.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     data.map((moto) => {deleteCartMoto(moto.id)})
   }
 
   const addAllMotosToLibrary = async () => {
-    const { data } = await axios(MOTOS_API);
-    data.map((moto) => {
-      moto.wishlist.map((email) => {if(email == JSON.parse(localStorage.getItem('user'))){addMotoLibrary(moto.id)}})
+    const data1 = await firebase.firestore().collection('motos').get()
+    const data = data1.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    await data.map((moto) => {
+      moto.wishlist.map((email) => {if(email == currentUser.email){addMotoLibrary(moto.id)}})
     })
   }
 
   const addMotoLibrary = async (curMotoId) => {
-    const motoToLibrary = await axios(`${MOTOS_API}/${curMotoId}`);
-    motoToLibrary.data.library.push(JSON.parse(localStorage.getItem('user')))
-    await axios.patch(`${MOTOS_API}/${curMotoId}`,motoToLibrary.data)
+    const data = await firebase.firestore().collection('motos').get()
+    const data2 = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    data2.map( moto => {if(moto.id == curMotoId){
+      moto.library.push(currentUser.email)
+      moto.wishlist = moto.wishlist.filter((email => (email != currentUser.email)))
+      firebase.firestore().collection('motos').doc(curMotoId).update(moto)
+    }} )
   }
 
   const checking = async () => {
@@ -77,10 +86,10 @@ const Purchase = () => {
     ) {
       handleOpen();
       await addAllMotosToLibrary()
-      clearCart()
+      // clearCart()
       setTimeout(() => {
         history.push("/cart");
-      }, 1500);
+      }, 1000);
     } else {
       alert("Type valid information");
     }
@@ -88,7 +97,7 @@ const Purchase = () => {
 
   return (
     <div className="containerOuter">
-      <div id="PaymentForm" className='container'>
+      <div id="PaymentForm" className='containerPurchase'>
       <Cards
         cvc={cvc}
         expiry={expiry}

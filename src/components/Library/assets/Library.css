@@ -1,26 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-.containerOuter {
+.containerOuterLibrary {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
 }
 
-.container {
-  display: -webkit-box !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-  -ms-flex-wrap: wrap !important;
-      flex-wrap: wrap !important;
-  width: 100%;
+.containerLibrary {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  justify-self: center;
+  width: auto;
 }
 
-.card {
+.libraryCard {
   display: inline-block !important;
   border: 1px solid grey;
+  width: 400px;
+  max-height: 400px;
+  margin: 30px;
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
 }
 
 .descr-div {
@@ -89,11 +95,26 @@
   font-style: italic;
 }
 
-.nomoto {
+.noMotoContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.noMoto {
+  margin-top: 20px;
+  text-align: center;
   color: black;
   height: 80vh;
-  text-align: center;
-  margin-top: 20px;
+  font-family: "Bebas Neue", cursive;
+  font-style: italic;
 }
 
 .libraryText {
@@ -112,5 +133,47 @@
   width: 100%;
   font-family: "Bebas Neue", cursive !important;
   font-style: italic;
+}
+
+@media all and (max-width: 461px) {
+  .libraryCard {
+    width: 360px;
+  }
+}
+
+@media all and (max-width: 420px) {
+  .libraryCard {
+    width: 350px;
+  }
+}
+
+@media all and (max-width: 410px) {
+  .libraryCard {
+    width: 300px;
+  }
+}
+
+@media all and (max-width: 360px) {
+  .libraryCard {
+    width: 270px;
+  }
+}
+
+@media all and (max-width: 330px) {
+  .libraryCard {
+    width: 250px;
+  }
+}
+
+@media all and (max-width: 310px) {
+  .libraryCard {
+    width: 230px;
+  }
+}
+
+@media all and (max-width: 290px) {
+  .libraryCard {
+    width: 220px;
+  }
 }
 /*# sourceMappingURL=Library.css.map */

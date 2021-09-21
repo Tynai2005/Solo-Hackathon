@@ -25,7 +25,7 @@ const Routes = () => {
         <AuthContextProvider>
           <MotoContextProvider>
             <Header />
-            <Switch>
+            <Switch style={{overflowY: 'hidden'}}>
               <Route exact path="/aboutus" component={AboutUs} />
               <Route exact path="/contacts" component={Contacts} />
               <ProtectedRoute exact path="/library" component={Library} />

@@ -1,25 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+.container-slider {
+  position: static !important;
+  margin-bottom: 600px;
+}
+
 .carousel-photo {
-  width: 100%;
-  height: 700px;
+  position: static !important;
+  width: 100% !important;
+  height: 700px !important;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
 .carousel {
+  position: static !important;
   width: 100%;
-  height: 100%;
+  height: 10vh;
 }
 
 .slides {
-  height: 100%;
-  width: 100%;
-  -o-object-fit: fill;
-     object-fit: fill;
+  position: static !important;
+  height: 100% !important;
+  width: 100% !important;
+  -o-object-fit: fill !important;
+     object-fit: fill !important;
 }
 
 .btns {
-  background-color: #0099ff;
-  padding: 10px 30px;
+  background-color: #ce1e1e !important;
+  padding: 5px 20px !important;
+  font-family: "Bebas Neue", cursive !important;
+  color: white !important;
+  font-size: 20px !important;
+  font-style: italic !important;
 }
 
+.about-us-slider {
+  font-family: 'Roboto';
+  font-style: italic;
+  margin: 20px;
+  text-align: center;
+}
 /*# sourceMappingURL=CarouselSlide.css.map */
