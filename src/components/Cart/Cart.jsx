@@ -84,7 +84,7 @@ const Cart = () => {
   const [subPrice,setSubPrice] = useState(0)
   const [motoCount,setMotoCount] = useState(1)
   const [curMotoId,setCurMotoId] = useState()
-  const [amount,setAmount] = useState(0)
+  let [amount,setAmount] = useState(0)
   const [motos,setMotos] = useState([])
   let allMotos = []
   const classes = useStyles()
@@ -98,21 +98,16 @@ const Cart = () => {
     const data = data1.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     let sum = 0
     data.map((eachMoto) => {
-      eachMoto.wishlist.map((email) => {if(email == currentUser.email){setAmount(eachMoto.price);allMotos.push(eachMoto)}})
+      eachMoto.wishlist.map((email) => {if(email == currentUser.email){calcEachProduct(eachMoto.price);allMotos.push(eachMoto)}})
     })
     allMotos.forEach(eachMoto => {eachMoto.count = 1})
     setMotos(allMotos)
     setCanRender(true)
   }
 
-  const calcEachProduct = (id,count) => {
-    motos.forEach(moto => {if(id == moto.id){moto.count = count}})
-    setMotos(motos)
-    let total = 0
-    motos.map((moto) => total = moto.count * moto.price)
-    // setAmount(total)
-    console.log(amount);
-    console.log(motos);
+  const calcEachProduct = (price) => {
+    amount += price
+    setAmount(amount)
   }
 
   const calcSubprice = async (motoId,count,motoPrice) => {

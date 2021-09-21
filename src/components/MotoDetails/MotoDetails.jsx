@@ -64,7 +64,7 @@ const MotoDetails = () => {
     const data = await firebase.firestore().collection('motos').get()
     const motos = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     motos.map( moto => {if(moto.id == id){
-      moto?.library.map((email) => {if(currentUser?.email == email){setIsInLibrary(true)}})
+      moto?.library?.map((email) => {if(currentUser?.email == email){setIsInLibrary(true)}})
     }} )
   }
 
@@ -148,7 +148,7 @@ const MotoDetails = () => {
             </div>
             <div className='right'>
             <p className='p'>{MotoDetails.description}</p>
-            <h3><div style={{fontFamily: 'Roboto',fontSize:'15px'}}>Price:</div> {MotoDetails.price}$</h3>
+            <h3><div style={{fontFamily: 'Roboto',fontSize:'15px'}}>Price:</div>{MotoDetails.price}$</h3>
               <div className='type'>
                 <div>
                   <h6 className='p'>type:</h6>
