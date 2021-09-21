@@ -32,6 +32,7 @@ const MotoComments = () => {
         isChanged: null,
       };
       MotoDetails.comments.push(createdComment);
+      console.log(MotoDetails);
       toggleComment(MotoDetails.id, MotoDetails);
     } else {
       alert("Comment cannot be empty");
@@ -48,7 +49,7 @@ const MotoComments = () => {
 
   const saveEditedComment = async (id) => {
     if (editingComment.trim()) {
-      const newComments = await MotoDetails.comments.map((comment) => {
+      const newComments = MotoDetails.comments.map((comment) => {
         if (comment.id == id) {
           if (!comment.isChanged) {
             return {
@@ -67,7 +68,8 @@ const MotoComments = () => {
         return comment;
       });
       MotoDetails.comments = newComments;
-      await toggleComment(MotoDetails.id, MotoDetails);
+      console.log(MotoDetails);
+      toggleComment(MotoDetails.id, MotoDetails);
       setIsEditing(false);
     } else {
       alert("Comment cannot be empty");

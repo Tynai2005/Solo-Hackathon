@@ -1,18 +1,18 @@
  @import '../../../variables/Variables.scss';
 
-.containerOuter{
+.containerOuter-list{
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.container{
+.container-list{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
   }
-  .grids{
+  .grids-list{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -27,12 +27,16 @@
     height: 80vh;
   }
   .addBtn{
-    background-color: green;
-    color: $FontColor;;
+    margin-left: 20px !important;
+    background-color: green !important;
+    color: white !important;
+    font-style: italic !important;
+    font-family: $Font !important;
+    font-size: 15px !important;
   }
-  .menuMobile{
+  .menuMobile-list{
     left: 15;
-    background-color: $FontColor;;
+    background-color: white;
     color: black;
     opacity: 80%;
     z-index: 1;
@@ -47,4 +51,22 @@
 .sort-button{
   font-family: $Font !important;
   font-style: italic !important;
+  border: none;
+  background-color: #ce1e1e;
+  padding:5px 10px;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+// .sort-menu-list{
+//   // display: flex !important;
+//   // flex-direction: column !important;
+//   // align-items: center !important;
+// }
+
+@media all and (max-width: 500px){
+  .menuItem{
+    font-size: 10px;
+  }
 }

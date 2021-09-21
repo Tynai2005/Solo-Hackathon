@@ -7,9 +7,10 @@ import React, {
   useState,
 } from "react";
 import { useHistory } from "react-router-dom";
-
 import { ACTIONS, MOTOS_API, JSON_API_USERS } from "../helper/consts";
 import { AuthContext } from "./AuthContext";
+import firebase from 'firebase/app';
+
 
 export const MotoContext = createContext();
 
@@ -30,8 +31,8 @@ const reducer = (state = INIT_STATE, action) => {
     case ACTIONS.GET_MOTOS_DATA:
       return {
         ...state,
-        MotosData: action.payload.data,
-        pages: Math.ceil(action.payload.headers["x-total-count"] / MotosCount),
+        MotosData: action.payload,
+        // pages: Math.ceil(action.payload.headers["x-total-count"] / MotosCount),
       };
     case ACTIONS.MODAL:
       return { ...state, modal: action.payload };
@@ -49,13 +50,10 @@ let MotosCount = 6;
 const MotoContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
   const [isAllMotos, setIsAllMotos] = useState(false);
-
+  const [searchTxt,setSearchTxt] = useState('')
   const [cartMotos, setCartMotos] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [canRender,setCanRender] = useState(false)
-
-  let cart = [];
-  let sum = 0
 
   const history = useHistory();
   const {currentUser} = useContext(AuthContext)
@@ -64,15 +62,16 @@ const MotoContextProvider = ({ children }) => {
     const search = new URLSearchParams(history.location.search);
     search.set("_limit", MotosCount);
     history.push(`${history.location.pathname}?${search.toString()}`);
-    const data = await axios(`${MOTOS_API}/${window.location.search}`);
+    const data = await firebase.firestore().collection('motos').get()
+    const data2 = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     dispatch({
       type: ACTIONS.GET_MOTOS_DATA,
-      payload: data,
+      payload: data2,
     });
   };
 
   const deleteMoto = async (id) => {
-    await axios.delete(`${MOTOS_API}/${id}`);
+    firebase.firestore().collection('motos').doc(id).delete()
     getMotosData();
   };
 
@@ -92,11 +91,14 @@ const MotoContextProvider = ({ children }) => {
   };
 
   const getMotoDetails = async (id) => {
-    const { data } = await axios(`${MOTOS_API}/${id}`);
-    dispatch({
-      type: ACTIONS.GET_MOTO_DETAILS,
-      payload: data,
-    });
+    const data = await firebase.firestore().collection('motos').get()
+    const data2 = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    data2.map( moto => {if(moto.id == id){
+      dispatch({
+        type: ACTIONS.GET_MOTO_DETAILS,
+        payload: moto,
+      });
+    }} )
   };
 
   const addNewMoto = async (newMoto) => {
@@ -108,7 +110,7 @@ const MotoContextProvider = ({ children }) => {
       newMoto.name.trim().length > 0
     ) {
       if (Number(newMoto.price) > 0) {
-        await axios.post(MOTOS_API, newMoto);
+        firebase.firestore().collection('motos').add(newMoto)
         await getMotosData();
         history.push("/Motoslist");
       } else {
@@ -129,7 +131,7 @@ const MotoContextProvider = ({ children }) => {
       editedMoto.name.trim().length > 0
     ) {
       if (Number(editedMoto.price) > 0) {
-        const data = await axios.patch(`${MOTOS_API}/${id}`, editedMoto);
+        firebase.firestore().collection('motos').doc(id).update(editedMoto)
         toggleModal();
         getMotosData();
       } else {
@@ -141,8 +143,8 @@ const MotoContextProvider = ({ children }) => {
   };
 
   const toggleComment = async (id, editedMoto) => {
-    console.log(editedMoto);
-    const data = await axios.patch(`${MOTOS_API}/${id}`, editedMoto);
+    console.log(editedMoto,id);
+    await firebase.firestore().collection('motos').doc(id).update(Object.assign({}, editedMoto))
     getMotosData();
   };
 
@@ -152,16 +154,6 @@ const MotoContextProvider = ({ children }) => {
       payload: id,
     });
     history.push(`/Motodetails/${id}`);
-  };
-
-  const changetype = async (selectedtype) => {
-    const { data } = await axios(MOTOS_API);
-    console.log(data);
-    let newData = data.filter((Moto) => Moto.type == selectedtype);
-    dispatch({
-      type: ACTIONS.GET_MOTOS_DATA,
-      payload: newData,
-    });
   };
 
   const toHome = () => {
@@ -175,9 +167,11 @@ const MotoContextProvider = ({ children }) => {
   };
 
   const getMotoFromCart = async () => {
-    const { data } = await axios(MOTOS_API);    
-    data.map((eachMoto) => {
-      eachMoto.wishlist.map((email) => {if(email == currentUser.email){console.log('yeah'); cart.push(eachMoto);sum += Number(eachMoto.price)}})
+    let cart = [];
+    let sum = 0
+    await getMotosData()  
+    state.MotosData.map((eachMoto) => {
+      eachMoto.wishlist.map((email) => {if(email == currentUser.email){cart.push(eachMoto);sum += Number(eachMoto.price)}})
     })
     setCartMotos(cart)
     setTotalPrice(sum)
@@ -185,12 +179,14 @@ const MotoContextProvider = ({ children }) => {
   };
 
   const deleteCartMoto = async (motoId) => {
-    const { data } = await axios(`${MOTOS_API}/${motoId}`);
-    const newdWishlist =  data.wishlist.filter((email) => (email != currentUser.email))
-    data.wishlist = newdWishlist
-    await axios.patch(`${MOTOS_API}/${motoId}`,data)
+    await getMotoDetails(motoId)
+    const newdWishlist =  state.MotoDetails?.wishlist?.filter((email) => (email != currentUser.email))
+    const newData = JSON.parse(JSON.stringify(state.MotoDetails))
+    newData.wishlist = newdWishlist
+    await firebase.firestore().collection('motos').doc(motoId).update(newData)
     await getMotosData();
     getMotoFromCart()
+    console.log('complete');
   }
 
   const toBuyNow = async (motoId) => {
@@ -210,13 +206,16 @@ const MotoContextProvider = ({ children }) => {
     getMotoDetails,
     saveEditedMoto,
     changeId,
-    changetype,
     toggleComment,
     setIsAllMotos,
     toHome,
     toMotosList,
     getMotoFromCart,
     toBuyNow,
+    dispatch,
+    setSearchTxt,
+    setCanRender,
+    searchTxt,
     canRender,
     totalPrice,
     cartMotos,

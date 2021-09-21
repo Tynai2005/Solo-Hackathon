@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import React, { useContext } from "react";
 import { useEffect } from "react";
 import { useMotos } from "../../contexts/MotoContext";
@@ -21,7 +21,9 @@ import { AuthContext, useAuth } from "../../contexts/AuthContext";
 import { Alert } from "@material-ui/lab";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderSharpIcon from "@material-ui/icons/FavoriteBorderSharp";
-import './assets/MotoDetails.css'
+import './assets/MotoDetails.css';
+import firebase from 'firebase/app';
+
 
 function HomeIcon(props) {
   return (
@@ -35,7 +37,7 @@ const MotoDetails = () => {
   const [open, setOpen] = useState(false);
   const [isLiked, setIsLiked] = useState();
   const [likesCount, setLikesCount] = useState(0);
-  const [isInCart,setIsInCart] = useState(false)
+  const [isInCart,setIsInCart] = useState()
   const [isInLibrary,setIsInLibrary] = useState(false)
   const {
     MotoDetails,
@@ -48,10 +50,10 @@ const MotoDetails = () => {
 
   const [buttonColor, setButtonColor] = useState("primary");
   const search = window.location.href;
-  const curMotoId = search.slice(34, search.length);
+  const {id} = useParams()
 
   useEffect(async () => {
-    await  getMotoDetails(curMotoId);
+    await getMotoDetails(id)
     handleLikesCount()
     handleIsInLibrary()
     handleIsInCart()
@@ -59,39 +61,48 @@ const MotoDetails = () => {
   }, []); 
 
   const handleIsInLibrary = async () => {
-    const curMoto = await axios(`${MOTOS_API}/${curMotoId}`); 
-    curMoto?.data.library.map((email) => {if(currentUser?.email == email){setIsInLibrary(true)}})
+    const data = await firebase.firestore().collection('motos').get()
+    const motos = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    motos.map( moto => {if(moto.id == id){
+      moto?.library.map((email) => {if(currentUser?.email == email){setIsInLibrary(true)}})
+    }} )
   }
 
   const handleLikesCount = async () => {
-    const curMoto = await axios(`${MOTOS_API}/${curMotoId}`); 
-    curMoto?.data.likes.map((like) => {
-      if(like == currentUser?.email){
-        setIsLiked(true)
-      }
-    })
-    setLikesCount(curMoto.data.likes.length);
+    const data = await firebase.firestore().collection('motos').get()
+    const motos = data.docs.map(doc => ({ ...doc.data(), id: doc.id })); 
+    motos.map( moto => {if(moto.id == id){
+      moto?.likes.map((like) => {
+        if(like == currentUser?.email){
+          setIsLiked(true)
+        }
+      })
+      setLikesCount(moto.likes.length);
+    }} )
   }
 
   const handleIsInCart = async () => {  
-    const curMoto = await axios(`${MOTOS_API}/${curMotoId}`)
-    curMoto.data.wishlist.map((email) => {if(email == currentUser?.email){setIsInCart(true)}})
+    const data = await firebase.firestore().collection('motos').get()
+    const motos = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    motos.map( moto => {if(moto.id == id){
+      moto.wishlist.map((email) => {if(email == currentUser?.email){setIsInCart(true)}})
+    }} )
   }
 
   const addMotoCart = async () => {
-    const motoToCart = await axios(`${MOTOS_API}/${curMotoId}`);
-    motoToCart.data.wishlist.push(currentUser?.email)
-    await axios.patch(`${MOTOS_API}/${curMotoId}`,motoToCart.data)
-    getMotoDetails(curMotoId);
+    const curMoto = await JSON.parse(JSON.stringify(MotoDetails))
+    curMoto.wishlist.push(currentUser.email)
+    firebase.firestore().collection('motos').doc(MotoDetails.id).update(curMoto)
+    getMotoDetails(id);
     setIsInCart(true)
   };
 
   const deleteMotoCart = async () => {
-    const motoFromCart = await axios(`${MOTOS_API}/${curMotoId}`);
-    const filteredCart = motoFromCart.data.wishlist.filter((email) => {return(email != currentUser.email)})
-    motoFromCart.data.wishlist = filteredCart
-    await axios.patch(`${MOTOS_API}/${curMotoId}`,motoFromCart.data)
-    getMotoDetails(curMotoId);
+    const motoFromCart = await JSON.parse(JSON.stringify(MotoDetails))
+    const filteredCart = motoFromCart.wishlist.filter((email) => {return(email != currentUser.email)})
+    motoFromCart.wishlist = filteredCart
+    firebase.firestore().collection('motos').doc(MotoDetails.id).update(motoFromCart)
+    getMotoDetails(id);
     setIsInCart(false)
   }
 
@@ -103,19 +114,19 @@ const MotoDetails = () => {
   };
 
   const like = async () => {
-    const { data } = await axios(`${MOTOS_API}/${curMotoId}`);
-    data.likes.push(currentUser?.email);
-    await axios.patch(`${MOTOS_API}/${curMotoId}`, data);
+    const curMoto = await JSON.parse(JSON.stringify(MotoDetails))
+    curMoto.likes.push(currentUser?.email);
+    firebase.firestore().collection('motos').doc(MotoDetails.id).update(curMoto)
     setIsLiked(true);
-    setLikesCount(data.likes.length);
+    setLikesCount(curMoto.likes.length);
   };
 
   const dislike = async () => {
-    const { data } = await axios(`${MOTOS_API}/${curMotoId}`);
-    const newLikes = data.likes.filter((like) => like != currentUser?.email);
+    const curMoto = await JSON.parse(JSON.stringify(MotoDetails))
+    const newLikes = curMoto.likes.filter((like) => like != currentUser?.email);
     console.log(newLikes);
-    const newData = { ...data, likes: newLikes };
-    await axios.patch(`${MOTOS_API}/${curMotoId}`, newData);
+    const newData = { ...curMoto, likes: newLikes };
+    firebase.firestore().collection('motos').doc(MotoDetails.id).update(newData)
     setIsLiked(false);
     setLikesCount(newLikes.length);
   };
@@ -123,9 +134,9 @@ const MotoDetails = () => {
   return (
     <Container>
       <div className='detailsContainer'>
-        <div className='details'>
+        <div className='moto-details'>
           <hr className="hr" />
-          <div style={{}}>
+          <div > 
             <div className='left'>
               <h1 className='h1'>{MotoDetails.name}</h1>
               <br />
@@ -171,10 +182,10 @@ const MotoDetails = () => {
                 <><div className='buyBtns'>
                 <Button
                     variant="contained"
-                    color="primary"
+                    className="buy-button-details"
                     onClick={() => {
                       history.push("/purchase");
-                      toBuyNow(curMotoId);
+                      toBuyNow(id);
                     }}
                   >
                     Buy now
@@ -182,21 +193,21 @@ const MotoDetails = () => {
               </div>
               <div className='buyBtns'>
                    {currentUser ?  
-                    <>{isInCart ?
+                    <>{isInCart  ?
                       <Button
                         variant="outlined"
-                        color={buttonColor}
+                        className='cart-button-details'
                         onClick={() => {
-                          deleteMotoCart(curMotoId);
-                          getMotoDetails(curMotoId);
+                          deleteMotoCart(id);
+                          getMotoDetails(id);
                         }}
                       >
-                        Delete from cart
+                        Remove from cart
                       </Button>
                       : 
                     <Button
                       variant="outlined"
-                      color={buttonColor}
+                      className='cart-button-details'
                       onClick={() => {
                         addMotoCart();
                       }}
@@ -206,7 +217,7 @@ const MotoDetails = () => {
                       :
                     <Button
                       variant="outlined"
-                      color={buttonColor}
+                      className='cart-button-details'
                       onClick={() => history.push("/login")}
                     >
                       Add to cart

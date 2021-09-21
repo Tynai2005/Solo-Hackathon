@@ -18,7 +18,6 @@ import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 import './assets/Login.css'
 
 const Login = () => {
-
     const {
     visible,
     handleVisible,
@@ -60,23 +59,19 @@ const Login = () => {
 
   return (
     <Container component="main" maxWidth="xs">
-      <form action="" className='cont'>
-        <Grid container className='containers'>
+      <form action="" className='cont-auth'>
+        <Grid container className='containers-auth'>
           <div>
             <Typography component="h1" variant="h5" color='black' style={{ color: "black"}}>
               Authorization
             </Typography>
           </div>
-          <Grid className='grids'>
+         <Grid className='grids-auth'>
             <TextField
               variant="filled"
-              className='inps'
               name="email"
               required
               label="Email"
-              InputProps={{
-                className: 'inpColor',
-              }}
               InputLabelProps={{
                 style: { color: "black" },
               }}
@@ -88,17 +83,13 @@ const Login = () => {
               }
             />
           </Grid>
-          <Grid className='grids'>
+          <Grid className='grids-auth'>
             <TextField
               variant="filled"
-              className='inps'
               type={typePass}
               name="password"
               required
               label="Password"
-              InputProps={{
-                className: 'inpColor',
-              }}
               InputLabelProps={{
                 style: { color: "black" },
               }}
@@ -107,7 +98,7 @@ const Login = () => {
               }
             />
             <IconButton
-              className='visBtn'
+              className='visBtn-auth'
               onClick={() => {
                 handleVisible();
                 handleInpType();
@@ -116,14 +107,14 @@ const Login = () => {
               {!visible ? <VisibilityIcon /> : <VisibilityOffIcon />}
             </IconButton>
           </Grid>
-          <Grid className='buttons'> 
+          <Grid > 
             {exist ? (
-              <Typography className='text'>
+              <Typography className='text-auth'>
                 No such user exists. Wanna <Link to="/signup">sign up</Link>?
               </Typography>
             ) : null}
             <Button
-              className='btns'
+              className='btns-auth'
               style={{ marginRight: "25px" }}
               variant="contained"
               color="secondary"
@@ -134,7 +125,7 @@ const Login = () => {
               Close
             </Button>
             <Button
-              className='btns'
+              className='btns-auth'
               variant="contained"
               color="primary"
               onClick={(e) => handleLogin(e)}

@@ -12,7 +12,8 @@ import { useMotos } from "../../contexts/MotoContext";
 import './assets/Cart.css'
 import { AuthContext } from "../../contexts/AuthContext";
 import { MOTOS_API } from "../../helper/consts";
-import axios from "axios";
+import firebase from 'firebase/app';
+
 
 const useStyles = makeStyles((theme) => ({
 
@@ -20,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
     color: 'black',
     marginLeft: '10px',
     fontSize: '20px',
-    
   },
   img:{
     width: '15%',
@@ -56,6 +56,8 @@ const useStyles = makeStyles((theme) => ({
     height: '80vh',
     textAlign: 'center',
     marginTop: '20px',
+    fontStyle:'italic',
+    fontFamily:'Bebas Neue'
   },
   buyGrid:{
     display: 'flex',
@@ -77,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Cart = () => {
-  const { history,getMotoFromCart,deleteCartMoto,canRender,totalPrice,cartMotos } = useMotos();
+  const { history,getMotoFromCart,deleteCartMoto,canRender,totalPrice,cartMoto,setCanRender } = useMotos();
   const {currentUser} = useContext(AuthContext)
   const [subPrice,setSubPrice] = useState(0)
   const [motoCount,setMotoCount] = useState(1)
@@ -86,21 +88,21 @@ const Cart = () => {
   const [motos,setMotos] = useState([])
   let allMotos = []
   const classes = useStyles()
-  useEffect( async () => {
-    await getMotoFromCart()
+  useEffect( () => {
     handleCreateAllMotos()
     window.scrollTo(0, 0);
   },[])
 
   const handleCreateAllMotos = async () => { 
-    const { data } = await axios(MOTOS_API);
+    const data1 = await firebase.firestore().collection('motos').get()
+    const data = data1.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     let sum = 0
     data.map((eachMoto) => {
       eachMoto.wishlist.map((email) => {if(email == currentUser.email){allMotos.push(eachMoto)}})
     })
     allMotos.forEach(eachMoto => {eachMoto.count = 1})
     setMotos(allMotos)
-    console.log(allMotos);
+    setCanRender(true)
   }
 
   const calcEachProduct = (id,count) => {
@@ -131,10 +133,10 @@ const Cart = () => {
   return (
     <>
     {canRender ? <>
-      {cartMotos.length > 0 ? (
+      {motos.length > 0 ? (
         <Container className={classes.main}>
           <h2 className={classes.title}>Your cart</h2>
-            {cartMotos.map((moto) => (
+            {motos.map((moto) => (
               <Container className={classes.container}>
               <Grid className={classes.grids}>
                 <div>
@@ -145,8 +147,9 @@ const Cart = () => {
               <Grid className={classes.grids}>
                 <div>{moto.price}$</div>
                 <IconButton
-                  onClick={() => {
-                    deleteCartMoto(moto.id);
+                  onClick={ async () => {
+                    await deleteCartMoto(moto.id)
+                    handleCreateAllMotos();
                   }}
                 >
                   <DeleteIcon className={classes.deleteBtn} />
@@ -167,7 +170,7 @@ const Cart = () => {
       ) : (
         <h2 className={classes.noMoto}>There isn't Motos in your cart</h2>
       )}
-    </> : <div>Loading...</div>}
+    </> : <h2 className={classes.noMoto}>Loading...</h2>}
     </>
   );
 };

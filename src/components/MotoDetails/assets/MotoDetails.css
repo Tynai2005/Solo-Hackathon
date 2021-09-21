@@ -9,7 +9,7 @@
   width: 100%;
 }
 
-.details {
+.moto-details {
   width: 80%;
   font-family: "Bebas Neue", cursive;
   font-style: italic;
@@ -71,11 +71,11 @@
 }
 
 .imgDet {
-  border-radius: 10px !important;
-  height: 80vh !important;
-  width: 100% !important;
-  -o-object-fit: cover !important;
-     object-fit: cover !important;
+  border-radius: 10px;
+  height: 300px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .video {
@@ -84,5 +84,48 @@
 
 .buyBtns {
   margin-top: 10px;
+}
+
+.buy-button-details {
+  font-family: "Bebas Neue", cursive !important;
+  background-color: #ce1e1e !important;
+  color: white !important;
+  font-style: italic !important;
+}
+
+.cart-button-details {
+  font-family: "Bebas Neue", cursive !important;
+  color: #ce1e1e !important;
+  font-style: italic !important;
+}
+
+@media all and (min-width: 400px) {
+  .imgDet {
+    height: 350px;
+  }
+}
+
+@media all and (min-width: 500px) {
+  .imgDet {
+    height: 400px;
+  }
+}
+
+@media all and (min-width: 800px) {
+  .imgDet {
+    height: 600px;
+  }
+}
+
+@media all and (min-width: 900px) {
+  .imgDet {
+    height: 700px;
+  }
+}
+
+@media all and (min-width: 1150px) {
+  .imgDet {
+    height: 900px;
+  }
 }
 /*# sourceMappingURL=MotoDetails.css.map */

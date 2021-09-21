@@ -56,23 +56,20 @@ import './assets/Login.css'
 
   return (
     <Container component="main" maxWidth="xs">
-      <form action="" className='cont'>
-        <Grid container className='containers'>
+      <form action="" className='cont-auth'>
+        <Grid container className='containers-auth'>
           <div>
             <Typography component="h1" variant="h5" color='black' style={{ color: "black" }}>
               Registration
             </Typography>
           </div>
-          <Grid className='grids'>
+          <Grid className='grids-auth'>
             <TextField
               variant="filled"
-              className='inps'
+              className='inps-auth'
               name="email"
               required
               label="Email"
-              InputProps={{
-                className: 'inpColor',
-              }}
               InputLabelProps={{
                 style: { color: "black" },
               }}
@@ -84,17 +81,14 @@ import './assets/Login.css'
               }
             />
           </Grid>
-          <Grid className='grids'>
+          <Grid className='grids-auth'>
             <TextField
               variant="filled"
-              className='inps'
+              className='inps-auth'
               type={typePass}
               name="password"
               required
               label="Password"
-              InputProps={{
-                className: 'inpColor',
-              }}
               InputLabelProps={{
                 style: { color: "black" },
               }}
@@ -103,7 +97,7 @@ import './assets/Login.css'
               }
             />
             <IconButton
-              className='visBtn'
+              className='visBtn-auth'
               onClick={() => {
                 setVisible(!visible);
                 handleInpType();
@@ -119,7 +113,7 @@ import './assets/Login.css'
               </Typography>
             ) : null}
             <Button
-              className='btns'
+              className='btns-auth'
               style={{ marginRight: "25px" }}
               variant="contained"
               color="secondary"
@@ -130,7 +124,7 @@ import './assets/Login.css'
               Close
             </Button>
             <Button
-              className='btns'
+              className='btns-auth'
               variant="contained"
               color="primary"
               onClick = {(e) => {handleSignUp(e)}}

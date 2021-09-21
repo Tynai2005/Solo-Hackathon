@@ -32,10 +32,12 @@
   border-radius: 5px;
   margin: 30px 12px;
   color: black;
+  -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.68);
+          box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.68);
 }
 
 .Moto-card-info {
-  margin-top: 30px;
+  margin: 5px;
   font-family: "Bebas Neue", cursive;
   font-style: italic;
   line-height: 25px;
@@ -46,17 +48,11 @@
   height: 70%;
 }
 
-.Moto-card-img:hover {
+.Moto-card:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   -webkit-transition: .5s;
   transition: .5s;
-}
-
-@media all and (max-width: 475px){
-  .Moto-card-img{
-    width: 230px !important
-  }
 }
 
 .Moto-card-img {
@@ -65,5 +61,51 @@
   border-radius: 5px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.card-price {
+  font-family: 'Arial';
+}
+
+@media all and (max-width: 461px) {
+  .Moto-card {
+    width: 360px;
+  }
+}
+
+@media all and (max-width: 420px) {
+  .Moto-card {
+    width: 350px;
+  }
+}
+
+@media all and (max-width: 410px) {
+  .Moto-card {
+    width: 300px;
+  }
+}
+
+@media all and (max-width: 360px) {
+  .Moto-card {
+    width: 270px;
+  }
+}
+
+@media all and (max-width: 330px) {
+  .Moto-card {
+    width: 250px;
+  }
+}
+
+@media all and (max-width: 310px) {
+  .Moto-card {
+    width: 230px;
+  }
+}
+
+@media all and (max-width: 290px) {
+  .Moto-card {
+    width: 220px;
+  }
 }
 /*# sourceMappingURL=MotoCard.css.map */

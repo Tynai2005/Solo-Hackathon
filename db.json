@@ -1,5 +1,5 @@
 {
-  "motos": [
+  "motos": [  
     {
       "name": "BMW R-Series",
       "description": "1978 R100/7. Not restored but runs and looks good. 34,309 miles. Includes: Luftmeister period appropriate fairing (will not be mounted on bike bike but shown in some pics) Corbin seat Super Trapp exhaust Hepco & Becker hard saddle bags Progressive front fork springs Progressive rear shocks Electronic ignition Much (not all) of the hardware has been replaced with stainless hardware Body parts and fairing professionally repainted +-10 years ago (still looks good)  Bike is very sound mechanically and looks good cosmetically.  Will need new tires at some point in near future (could be ridden on but have some small cracking).  I have had this bike for many years and love it but my wife bought me an R100RS and I am not riding both.  Want it to go to a good home where it will be used.    Buyer responsible for pick up and/or shipping costs and arrangements but I will assist with shipping (flexibility for pickup etc).",
@@ -33,16 +33,10 @@
       "price": 8995,
       "type": "Standard",
       "brand": "Harley-Davidson",
-      "comments": [
-        {
-          "authorMail": "tynai.s.95@gmail.com",
-          "date": "Tue Aug 24 2021 13:10:55",
-          "text": "rhytujymnthrtg",
-          "id": 1629789055129,
-          "isChanged": null
-        }
+      "comments": [],
+      "likes": [
+        "tynai.s.95@gmail.com"
       ],
-      "likes": [],
       "wishlist": [
         "james@gmail.com"
       ],
@@ -56,7 +50,15 @@
       "price": 11888,
       "type": "Standard",
       "brand": "Honda",
-      "comments": [],
+      "comments": [
+        {
+          "authorMail": "tynai.s.95@gmail.com",
+          "date": "Thu Aug 26 2021 17:37",
+          "text": "sdcvfbgfnhg",
+          "id": 1629977826088,
+          "isChanged": null
+        }
+      ],
       "likes": [],
       "wishlist": [],
       "library": [
@@ -73,8 +75,8 @@
       "brand": "Triumph",
       "comments": [],
       "likes": [
-        "tynai.s.95@gmail.com",
-        "atay@gmail.com"
+        "atay@gmail.com",
+        "tynai.s.95@gmail.com"
       ],
       "wishlist": [],
       "library": [],
@@ -97,7 +99,9 @@
         }
       ],
       "likes": [],
-      "wishlist": [],
+      "wishlist": [
+        "james@gmail.com"
+      ],
       "library": [
         "tynai.s.95@gmail.com"
       ],
@@ -114,9 +118,9 @@
         {
           "authorMail": "tynai.s.95@gmail.com",
           "date": "Wed Aug 25 2021 00:07:55",
-          "text": "sdfghjhgfds",
+          "text": "new comment",
           "id": 1629828475714,
-          "isChanged": null
+          "isChanged": " (changed)"
         },
         {
           "authorMail": "tynai.s.95@gmail.com",
@@ -124,14 +128,19 @@
           "text": "wdefrgthyjtgrfedws",
           "id": 1629828485680,
           "isChanged": null
+        },
+        {
+          "authorMail": "tynai.s.95@gmail.com",
+          "date": "Mon Aug 30 2021 16:42",
+          "text": "bullshit",
+          "id": 1630320175031,
+          "isChanged": null
         }
       ],
       "likes": [
         "tynai.s.95@gmail.com"
       ],
-      "wishlist": [
-        "tynai.s.95@gmail.com"
-      ],
+      "wishlist": [],
       "library": [],
       "id": 6
     },
@@ -145,7 +154,6 @@
       "comments": [],
       "likes": [],
       "wishlist": [
-        "tynai.s.95@gmail.com",
         "james@gmail.com"
       ],
       "library": [
@@ -177,9 +185,7 @@
       "brand": "Kawasaki",
       "comments": [],
       "likes": [],
-      "wishlist": [
-        "tynai.s.95@gmail.com"
-      ],
+      "wishlist": [],
       "library": [],
       "id": 9
     },
@@ -202,9 +208,7 @@
       "likes": [
         "tynai.s.95@gmail.com"
       ],
-      "wishlist": [
-        "tynai.s.95@gmail.com"
-      ],
+      "wishlist": [],
       "library": [],
       "id": 10
     }

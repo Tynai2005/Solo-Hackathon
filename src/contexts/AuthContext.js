@@ -12,7 +12,6 @@ const AuthContextProvider = ({ children }) => {
   const [inpType, setInpType] = useState(false);
   const [typePass, setTypePass] = useState("password");
 
-
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       setCurrentUser(user)
