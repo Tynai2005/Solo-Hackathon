@@ -15,7 +15,7 @@ const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       setCurrentUser(user)
-      setIsAdmin(user?.email == 'tynai.s.95@gmail.com');
+      setIsAdmin(user?.email == 'admin@gmail.com');
       localStorage.setItem('user',JSON.stringify(user.email))
     });
   }, []);

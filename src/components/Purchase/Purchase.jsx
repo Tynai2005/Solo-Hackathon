@@ -18,13 +18,14 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 const Purchase = () => {
   const [open, setOpen] = useState(false);
-  const { toLibrary, history,deleteCartMoto,MotoDetails,getMotoDetails } = useMotos();
+  const { toLibrary, history,deleteCartMoto,MotoDetails,getMotoDetails,buyNow } = useMotos();
   const {currentUser} = useContext(AuthContext)
   const [cvc, setCvc] = useState("");
   const [expiry, setExpiry] = useState("");
   const [focus, setFocus] = useState("");
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
+  const [haveInCart,setHaveInCart] = useState(false)
 
   const handleInputFocus = (e) => {
     setFocus(e.target.name);
@@ -53,27 +54,32 @@ const Purchase = () => {
     setOpen(false);
   };
 
-  const clearCart = async () => {
-    const data1 = await firebase.firestore().collection('motos').get()
-    const data = data1.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-    data.map((moto) => {deleteCartMoto(moto.id)})
-  }
-
   const addAllMotosToLibrary = async () => {
     const data1 = await firebase.firestore().collection('motos').get()
     const data = data1.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-    await data.map((moto) => {
+    data.map((moto) => {
       moto.wishlist.map((email) => {if(email == currentUser.email){addMotoLibrary(moto.id)}})
     })
+    if (!haveInCart){
+      data.map((moto) => {
+        if (moto.id == buyNow){
+          moto.library.push(currentUser.email)
+          firebase.firestore().collection('motos').doc(buyNow).update(moto)
+        }
+      })
+    }
   }
 
   const addMotoLibrary = async (curMotoId) => {
+    setHaveInCart(true)
     const data = await firebase.firestore().collection('motos').get()
     const data2 = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     data2.map( moto => {if(moto.id == curMotoId){
+      console.log(currentUser.email);
       moto.library.push(currentUser.email)
       moto.wishlist = moto.wishlist.filter((email => (email != currentUser.email)))
       firebase.firestore().collection('motos').doc(curMotoId).update(moto)
+      console.log(moto.wishlist);
     }} )
   }
 
@@ -86,9 +92,8 @@ const Purchase = () => {
     ) {
       handleOpen();
       await addAllMotosToLibrary()
-      // clearCart()
       setTimeout(() => {
-        history.push("/cart");
+        history.push("/library");
       }, 1000);
     } else {
       alert("Type valid information");

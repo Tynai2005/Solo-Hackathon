@@ -54,6 +54,7 @@ const MotoContextProvider = ({ children }) => {
   const [cartMotos, setCartMotos] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [canRender,setCanRender] = useState(false)
+  const [buyNow,toBuyNow] = useState('')
 
   const history = useHistory();
   const {currentUser} = useContext(AuthContext)
@@ -189,13 +190,6 @@ const MotoContextProvider = ({ children }) => {
     console.log('complete');
   }
 
-  const toBuyNow = async (motoId) => {
-    const { data } = await axios(`${MOTOS_API}/${motoId}`);
-    data.library.push(currentUser.email)
-    getMotosData()
-  }
-
-
   const values = {
     getMotosData,
     addNewMoto,
@@ -215,6 +209,7 @@ const MotoContextProvider = ({ children }) => {
     dispatch,
     setSearchTxt,
     setCanRender,
+    buyNow,
     searchTxt,
     canRender,
     totalPrice,

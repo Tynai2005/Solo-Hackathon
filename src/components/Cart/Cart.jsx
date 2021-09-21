@@ -98,7 +98,7 @@ const Cart = () => {
     const data = data1.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     let sum = 0
     data.map((eachMoto) => {
-      eachMoto.wishlist.map((email) => {if(email == currentUser.email){allMotos.push(eachMoto)}})
+      eachMoto.wishlist.map((email) => {if(email == currentUser.email){setAmount(eachMoto.price);allMotos.push(eachMoto)}})
     })
     allMotos.forEach(eachMoto => {eachMoto.count = 1})
     setMotos(allMotos)
@@ -110,7 +110,7 @@ const Cart = () => {
     setMotos(motos)
     let total = 0
     motos.map((moto) => total = moto.count * moto.price)
-    setAmount(total)
+    // setAmount(total)
     console.log(amount);
     console.log(motos);
   }
@@ -120,12 +120,12 @@ const Cart = () => {
     if(count < 1){
       await setMotoCount(1)
       await setSubPrice(1*motoPrice)
-      setAmount(subPrice)
+      // setAmount(subPrice)
       setCurMotoId(motoId)
       return
     }
     await setSubPrice(count*motoPrice)
-    setAmount(subPrice)
+    // setAmount(subPrice)
     setMotoCount(count)
     setCurMotoId(motoId)
   }
@@ -158,7 +158,7 @@ const Cart = () => {
             </Container>
             ))}
           <Grid className={classes.buyGrid}>
-            <h2 className={classes.title}>Total price: {totalPrice}$</h2>
+            <h2 className={classes.title}>Total price: {amount}$</h2>
             <Button
               className={classes.buyBtn}
               onClick={() => history.push("/purchase")}

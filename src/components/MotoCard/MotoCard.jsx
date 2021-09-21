@@ -33,7 +33,7 @@ const MotoCard = ({ Moto }) => {
         <div className='card-price'>
           {Moto.price == 0 ? "Free to play" : Moto.price + "$"}
         </div>
-        {JSON.parse(localStorage.getItem('user')) == "tynai.s.95@gmail.com" ? (
+        {JSON.parse(localStorage.getItem('user')) == "admin@gmail.com" ? (
           <div className='buttons-card'>
             <DeleteIcon  
               className='deleteButton'
